@@ -1,0 +1,6 @@
+.header__cart-preview-img {
+    display: block;
+    grid-area: img;
+    width: 42px;
+    border-radius: 5px;
+}

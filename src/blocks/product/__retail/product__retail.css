@@ -1,0 +1,7 @@
+.product__retail {
+  margin: 0;
+  font-weight: 700;
+  text-decoration: line-through;
+  letter-spacing: .8px;
+  color: hsl(220, 14%, 75%);
+}

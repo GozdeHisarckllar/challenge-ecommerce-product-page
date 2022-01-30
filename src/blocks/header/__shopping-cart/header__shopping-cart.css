@@ -1,0 +1,30 @@
+.header__shopping-cart {
+    position: relative;
+    width: 22px;
+    height: 20px;
+    background-image: url('../../../images/icon-cart.svg');
+    background-color: transparent;
+    background-position: center;
+    background-size: cover;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.header__shopping-cart::after {
+    content: '';
+    width: 17px;
+    height: 9px;
+    background-color: hsla(26, 100%, 55%, .5);
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    border-radius: 0 0 7px 3px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity .3s ease;
+}
+
+.header__shopping-cart:hover::after {
+    opacity: 1;
+}

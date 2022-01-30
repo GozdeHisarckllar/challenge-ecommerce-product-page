@@ -1,0 +1,9 @@
+.header__cart-preview-full {
+    display: grid;
+    height: 100%;
+    grid-template-areas: "img name del"
+                         "img price del"
+                         "checkout checkout checkout";
+    padding: 20px;
+    grid-template-rows: 20px 20px 1fr;
+}

@@ -1,0 +1,5 @@
+.header__cart-preview-empty {
+    font-weight: 700;
+    color: hsl(219, 9%, 45%);
+    margin: auto;
+}

@@ -1,0 +1,23 @@
+.product__add-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  background-color: hsl(26, 81%, 51%);
+  border: none;
+  border-radius: 12px;
+  outline: #fff;
+  transition: all .3s ease-in-out;
+  cursor: pointer;
+  filter: drop-shadow(0 10px 12px rgba(231, 117, 29, .46));
+}
+
+.product__add-btn:hover {
+  background-color: rgba(231, 117, 29, 0.767);
+}
+
+.product__add-btn:active {
+  transform: scale(.96);
+  background-color: hsl(26, 96%, 41%);
+  filter: none;
+}

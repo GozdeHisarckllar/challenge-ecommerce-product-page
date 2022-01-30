@@ -1,0 +1,15 @@
+.product__count {
+  width: 50px;
+  padding: 0;
+  justify-content: center;
+  font-weight: 700;
+  text-indent: 44%;
+  color: hsl(220, 13%, 13%);
+  border: none;
+  background-color: hsl(223, 64%, 98%);
+}
+
+.product__count:focus {
+  background-color: hsl(223, 64%, 98%);
+  outline: none;
+}

@@ -1,0 +1,8 @@
+.header__cart-preview-price {
+    font-size: 14px;
+    grid-area: price;
+    font-weight: 400;
+    color: hsl(219, 9%, 45%);
+    margin: 0;
+    align-self: center;
+}

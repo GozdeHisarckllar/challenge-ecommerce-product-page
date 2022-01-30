@@ -1,0 +1,24 @@
+.header__cart-preview-checkout {
+    width: 100%;
+    height: 48px;
+    margin-top: 24px;
+    grid-area: checkout;
+    background-color: hsl(26, 100%, 55%);
+    color: #fff;
+    font-size: 12px;
+    font-weight: 700;
+    border: none;
+    outline: none;
+    border-radius: 12px;
+    transition: background-color .3s ease-in-out;
+    cursor: pointer;
+}
+
+.header__cart-preview-checkout:hover {
+    background-color: hsl(26, 100%, 45%);
+}
+
+.header__cart-preview-checkout:active {
+    background-color: hsl(26, 96%, 41%);
+}
+

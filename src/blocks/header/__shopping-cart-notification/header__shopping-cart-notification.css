@@ -1,0 +1,10 @@
+.header__shopping-cart-notification {
+    display: none;
+    position: absolute;
+    width: 18px;
+    height: 13px;
+    background-color: hsl(26, 100%, 55%);
+    border-radius: 10px;
+    bottom: 12px;
+    left: 10px;
+}

@@ -1,0 +1,7 @@
+.header__cart-preview-name {
+    margin: 0;
+    font-size: .85rem;
+    font-weight: 400;
+    color: hsl(219, 9%, 45%);
+    align-self: center;
+}

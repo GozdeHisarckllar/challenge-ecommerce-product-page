@@ -1,0 +1,6 @@
+.product__title {
+  margin: 16px 0 30px;
+  font-size: 40px;
+  font-weight: 700;
+  color: hsl(220, 13%, 13%);
+}

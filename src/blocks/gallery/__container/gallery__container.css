@@ -1,0 +1,13 @@
+.gallery__container {
+  width: 100%;
+  max-width: 550px;
+  min-width: 250px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-template-areas: 'main main main main'
+                        'thumb1 thumb2 thumb3 thumb4';
+  row-gap: 28px;
+  column-gap: 25px;                    
+}

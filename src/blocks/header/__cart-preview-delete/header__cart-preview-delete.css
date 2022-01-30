@@ -1,0 +1,18 @@
+.header__cart-preview-delete {
+    width: 14px;
+    height: 16px;
+    grid-area: del;
+    background-image: url('../../../images/icon-delete.svg');
+    background-color: transparent;
+    background-size: cover;
+    background-position: center;
+    border: none;
+    outline: none;
+    margin: auto;
+    cursor: pointer;
+    transition: all .3s ease;
+}
+
+.header__cart-preview-delete:hover {
+    filter:invert(30%);
+}

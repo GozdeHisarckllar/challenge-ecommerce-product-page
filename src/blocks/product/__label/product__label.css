@@ -1,0 +1,8 @@
+.product__label {
+  margin: 0;
+  text-transform: uppercase;
+  color: hsl(26, 81%, 51%);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.25px;
+}

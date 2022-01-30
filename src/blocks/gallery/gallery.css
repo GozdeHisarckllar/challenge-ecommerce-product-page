@@ -1,0 +1,11 @@
+@import url('./__container/gallery__container.css');
+@import url('./__main/gallery__main.css');
+@import url('./__thumbnail/gallery__thumbnail.css');
+@import url('./__img/gallery__img.css');
+@import url('./__thumbnail/_active/gallery__thumbnail_active.css');
+@import url('./__thumbnail/_hover/gallery__thumbnail_hover.css');
+@import url('./__img/_thumbnail/gallery__img_thumbnail.css');
+
+.gallery {
+  width: 100%;
+}

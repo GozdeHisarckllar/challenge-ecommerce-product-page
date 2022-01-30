@@ -1,0 +1,27 @@
+.header__account-profile {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    background-image: url('../../../images/image-avatar.png');
+    background-size: cover;
+    background-position: center;
+    margin-left: 40px;
+}
+
+.header__account-profile::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 3px solid hsl(26, 100%, 55%); /*hsla(26, 100%, 55%, .5);*/
+    transform: scale(0);
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    z-index: -1;
+    transition: transform .3s ease;
+}
+
+.header__account-profile:hover::after {
+    transform: scale(1);
+}

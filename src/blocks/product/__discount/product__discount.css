@@ -1,0 +1,9 @@
+.product__discount {
+  margin: 0 0 0 20px;
+  padding: 5px 10px;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .4px;
+  color: hsl(26, 100%, 55%);
+  background-color: hsl(25, 100%, 94%);
+}

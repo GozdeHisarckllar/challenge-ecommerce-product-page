@@ -1,0 +1,22 @@
+@import url('./__label/product__label.css');
+@import url('./__title/product__title.css');
+@import url('./__description/product__description.css');
+@import url('./__price/product__price.css');
+@import url('./__discount/product__discount.css');
+@import url('./__cost-info/product__cost-info.css');
+@import url('./__cost-container/product__cost-container.css');
+@import url('./__retail/product__retail.css');
+@import url('./__counter-container/product__counter-container.css');
+@import url('./__cart-info/product__cart-info.css');
+@import url('./__counter-icon/product__counter-icon.css');
+@import url('./__count/product__count.css');
+@import url('./__add-btn/product__add-btn.css');
+@import url('./__add-cart-icon/product__add-cart-icon.css');
+@import url('./__add-btn-label/product__add-btn-label.css');
+@import url('./__counter-icon/_type/product__counter-icon_type_minus.css');
+@import url('./__counter-icon/_type/product__counter-icon_type_plus.css');
+
+.product {
+  width: 100%;
+  padding: 64px 0;
+}

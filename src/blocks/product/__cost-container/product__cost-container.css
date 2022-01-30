@@ -1,0 +1,4 @@
+.product__cost-container {
+  display: flex;
+  align-items: center;
+}
