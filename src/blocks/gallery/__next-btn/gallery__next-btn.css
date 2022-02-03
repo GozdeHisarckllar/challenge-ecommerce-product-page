@@ -1,0 +1,9 @@
+.gallery__next-btn {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  background-color: cornflowerblue;
+  cursor: pointer;
+}

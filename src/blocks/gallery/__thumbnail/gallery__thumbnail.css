@@ -2,6 +2,7 @@
   position: relative;
   width: 100%;
   cursor: pointer;
+  transition: all .2s ease-in-out;
 }
 
 .gallery__thumbnail::after {
@@ -37,4 +38,9 @@
 
 .gallery__thumbnail:nth-child(5) {
   grid-area: thumb4;
+}
+
+.gallery__thumbnail:hover {
+  transform: rotate3d(0, 1, -1, 4deg);
+  filter: drop-shadow(-2px 4px 6px rgb(68, 29, 3));
 }

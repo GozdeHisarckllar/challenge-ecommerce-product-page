@@ -12,7 +12,7 @@ import iconCart from '../images/icon-cart.svg';
 import Gallery from './Gallery';
 //dict map key imgid
 
-const Main = ({ isModalOpened, onOpenModal }) => {
+const Main = ({ productData, isModalOpened, onOpenModal, onCloseModal }) => {
 
   /*const [galleryMainImg, setGalleryMainImg] = useState('');
   const [activeImg, setActiveImg] = useState('image-product-1');*/
@@ -40,9 +40,21 @@ const Main = ({ isModalOpened, onOpenModal }) => {
     }*/
     setPurchaseQuantity(Number(event.target.value));
   }
+
+  function handleSubmitAddCart(event) {
+    event.preventDefault();
+    console.log(productData[0]['label']);
+  }
+  
   return (
     <main className='content'>
-      <Gallery isLightbox={false} isModalOpened={isModalOpened} onOpenModal={onOpenModal} />
+      <Gallery
+        productData={productData}
+        isLightbox={false} 
+        isModalOpened={isModalOpened} 
+        onOpenModal={onOpenModal} 
+        onCloseModal={onCloseModal}
+      />
       <section className='product'>
         <div className='product__container'>
           <p className='product__label'>Sneaker Company</p>
@@ -59,13 +71,13 @@ const Main = ({ isModalOpened, onOpenModal }) => {
             <p className='product__retail'>$250.00</p>
           </div>
         </div>
-        <form className='product__cart-info'>
+        <form className='product__cart-info' onSubmit={handleSubmitAddCart}>
           <label className='product__counter-container' >
             <img className='product__counter-icon product__counter-icon_type_minus' src={iconMinus} alt='discriment the quantity' onClick={() => {purchaseQuantity <= 1 ? setPurchaseQuantity(Number(purchaseQuantity)) : setPurchaseQuantity(Number(purchaseQuantity) - 1)}}/>
             <input className='product__count' value={purchaseQuantity} name='quantity' onChange={handleChangeQuantity} maxLength='2' onMouseOut={() => purchaseQuantity ? '' : setPurchaseQuantity(1)}/>
             <img className='product__counter-icon product__counter-icon_type_plus' src={iconPlus} alt='increment the quantity' onClick={() => {if (purchaseQuantity < 99) {setPurchaseQuantity(Number(purchaseQuantity) + 1)}}} />
           </label>
-          <button className='product__add-btn' type='button' aria-label='add this item to your cart'>
+          <button className='product__add-btn' type='submit' aria-label='add this item to your cart'>
             <img className='product__add-cart-icon' src={iconCart} alt='cart icon'/>
             <p className='product__add-btn-label'>Add to cart</p>
           </button>
@@ -76,4 +88,4 @@ const Main = ({ isModalOpened, onOpenModal }) => {
   );
 }
 
-export default Main;
+export default Main;// [{id:1, name, price, count: }, {}]  product data = [id, images, name, price]

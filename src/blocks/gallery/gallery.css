@@ -5,7 +5,10 @@
 @import url('./__thumbnail/_active/gallery__thumbnail_active.css');
 @import url('./__thumbnail/_hover/gallery__thumbnail_hover.css');
 @import url('./__img/_thumbnail/gallery__img_thumbnail.css');
+@import url('./__next-btn/gallery__next-btn.css');
+@import url('./__prev-btn/gallery__prev-btn.css');
 
 .gallery {
+  position: relative;
   width: 100%;
 }

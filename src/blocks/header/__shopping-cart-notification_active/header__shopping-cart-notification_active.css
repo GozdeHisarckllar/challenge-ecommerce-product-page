@@ -1,3 +1,4 @@
 .header__shopping-cart-notification_active {
-    display: block;
+    display: grid;
+    place-items: center;
 }

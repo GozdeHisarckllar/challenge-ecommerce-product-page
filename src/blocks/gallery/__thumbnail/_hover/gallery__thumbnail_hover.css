@@ -5,9 +5,9 @@
 @keyframes hover {
   100% {
     transform: scale(1);
-  background-color: hsla(22, 73%, 97%, 0.452);
-  outline: 3px solid hsl(26, 100%, 55%);
-  outline-offset: -3px;
-  border-radius: 10px;
+    background-color: hsla(22, 73%, 97%, 0.452);
+    outline: 3px solid hsl(26, 100%, 55%);
+    outline-offset: -3px;
+    border-radius: 10px;
   }
 }

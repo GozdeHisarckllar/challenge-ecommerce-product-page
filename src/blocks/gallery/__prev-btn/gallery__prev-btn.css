@@ -1,0 +1,9 @@
+.gallery__prev-btn {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-color: rgb(100, 210, 237);
+  cursor: pointer;
+}

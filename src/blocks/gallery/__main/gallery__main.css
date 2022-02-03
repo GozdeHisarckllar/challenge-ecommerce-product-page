@@ -3,6 +3,42 @@
   width: 100%;
   grid-area: main;
   cursor: pointer;
+  transition: all .3s ease-in-out;
 }
 
+.gallery__main_hover:hover {
+  /*transform: rotate3d(0, 1, -1, 2deg);*/
+  /*filter: drop-shadow(-8px 16px 12px rgb(68, 29, 3));*/
+  filter: drop-shadow(0 4px 12px rgb(68, 29, 3, .5));
+}
+
+.gallery__main:active {
+  transform: scale(.96);
+}
 /*add animation class*/
+.gallery__main_withAnimation {
+  animation: sliderAnimation .3s 1 linear forwards;
+}
+
+
+@keyframes sliderAnimation {
+  0% {
+    transform: scale(1);
+    filter: none;
+  }
+
+  50% {
+    transform: scale(.97);
+    filter: saturate(12%);
+  }
+  100% {
+    transform: scale(1);
+    filter: none;
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .gallery__main {
+    pointer-events: none;
+  }
+}

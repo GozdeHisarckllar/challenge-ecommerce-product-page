@@ -1,6 +1,6 @@
 import Gallery from './Gallery';
 
-const ModalWindow = ({ isModalOpened, onOpenModal }) => {
+const ModalWindow = ({ productData, isModalOpened, onOpenModal, onCloseModal }) => {
   /*const [imgIndex, setImgIndex] = useState(0);
   
   function h() {
@@ -14,7 +14,13 @@ const ModalWindow = ({ isModalOpened, onOpenModal }) => {
   return (
     <div className={`modal ${isModalOpened ? 'modal_opened': ''}`}>
       <div className="modal__container">
-        <Gallery isLightbox={true} isModalOpened={isModalOpened} onOpenModal={onOpenModal}/>
+        <Gallery
+          productData={productData}
+          isLightbox={true} 
+          isModalOpened={isModalOpened} 
+          onOpenModal={onOpenModal} 
+          onCloseModal={onCloseModal}
+        />
       </div>
 
     </div>
