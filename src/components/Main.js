@@ -11,8 +11,8 @@ import iconCart from '../images/icon-cart.svg';
 
 import Gallery from './Gallery';
 //dict map key imgid
-
-const Main = ({ productData, isModalOpened, onOpenModal, onCloseModal }) => {
+// data Context
+const Main = ({ productData, isModalOpened, onOpenModal, onCloseModal, onAddCart }) => {
 
   /*const [galleryMainImg, setGalleryMainImg] = useState('');
   const [activeImg, setActiveImg] = useState('image-product-1');*/
@@ -43,7 +43,15 @@ const Main = ({ productData, isModalOpened, onOpenModal, onCloseModal }) => {
 
   function handleSubmitAddCart(event) {
     event.preventDefault();
-    console.log(productData[0]['label']);
+    const cartListItem = {
+      id: productData[0].id,
+      title: productData[0].title,
+      price: productData[0].salePrice,
+      image: productData[0].images[0].thumbnail,
+      count: purchaseQuantity
+    };
+
+    onAddCart(cartListItem);
   }
   
   return (
@@ -65,10 +73,10 @@ const Main = ({ productData, isModalOpened, onOpenModal, onCloseModal }) => {
           </p>
           <div className='product__cost-info'>
             <div className='product__cost-container'>
-              <p className='product__price'>{`$${purchaseQuantity ? (125.00 * purchaseQuantity).toFixed(2): 125.00.toFixed(2)}`}</p>
-              <p className='product__discount'>50%</p>
+              <p className='product__price'>{`$${purchaseQuantity ? (productData[0].salePrice * purchaseQuantity).toFixed(2): productData[0].salePrice.toFixed(2)}`}</p>
+              <p className='product__discount'>{`${Math.abs(Math.round((productData[0].salePrice - productData[0].listPrice) / productData[0].listPrice * 100))}%`}</p>
             </div>
-            <p className='product__retail'>$250.00</p>
+            <p className='product__retail'>{`$${productData[0].listPrice.toFixed(2)}`}</p>
           </div>
         </div>
         <form className='product__cart-info' onSubmit={handleSubmitAddCart}>

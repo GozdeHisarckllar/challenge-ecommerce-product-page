@@ -1,0 +1,23 @@
+.gallery__close-btn {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-image: url('../../../images/icon-close.svg');
+  background-position: center;
+  background-size: cover;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all .15s ease-in-out;
+}
+
+.gallery__close-btn:hover {
+  background-image: url('../../../images/icon-close-hover.svg');
+  transform: scale(1.2);
+}
+
+.gallery__close-btn:active {
+  transform: scale(1);
+}

@@ -1,0 +1,10 @@
+.gallery__btn_prev {
+  top: 36%;
+  left: -24px;
+  background-image: url('../../../../images/icon-previous.svg');
+  background-position: 45% 50%;
+}
+
+.gallery__btn_prev:hover {
+  background-image: url('../../../../images/icon-previous-hover.svg');
+}

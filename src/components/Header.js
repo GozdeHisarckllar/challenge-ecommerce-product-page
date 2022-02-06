@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../images/logo.svg';
-import cartPreviewImg from '../images/image-product-1-thumbnail.jpg';
+//import cartPreviewImg from '../images/image-product-1-thumbnail.jpg';
 
-const Header = () => {// constant itemCount
-  const [isCartEmpty, setIsCardEmpty] = useState(false);// true/******** */
+const Header = ({ cartData, onRemoveCart }) => {// constant itemCount
+  //const [isCartEmpty, setIsCardEmpty] = useState(false);// true/******** */
   // img src constant
   const count=3;
 
@@ -17,6 +17,11 @@ const Header = () => {// constant itemCount
   function handleMouseOut() {
     setIsVisible(false);
   }
+
+  function handleRemoveItem(itemId) {
+    onRemoveCart(itemId);
+  }
+
   return(
     <header className="header">
       <div className="header__main">
@@ -43,16 +48,19 @@ const Header = () => {// constant itemCount
           onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}
         >
           <p className="header__cart-preview-title">Cart</p>
-          { isCartEmpty ? 
+          { cartData.length === 0 ? 
           <p className="header__cart-preview-empty">Your cart is empty.</p>
           :
-          <div className="header__cart-preview-full">
-            <img className="header__cart-preview-img" src={cartPreviewImg} alt="sneakers"/>
-            <p className="header__cart-preview-name">Fall Limited Edition Sneakers</p>
-            <p className="header__cart-preview-price">$ 125.00 X {count} <span className="header__cart-preview-calc">$ {125.00 * count}.00</span></p>
-            <button className="header__cart-preview-delete" type="button"></button>
-            <button className="header__cart-preview-checkout" type="button">Checkout</button>
-          </div> 
+            cartData.map((cartItem) => (
+            <div key={cartItem.id} className="header__cart-preview-full">
+              <img className="header__cart-preview-img" src={cartItem.image} alt="sneakers"/>
+              <p className="header__cart-preview-name">Fall Limited Edition Sneakers</p>
+              <p className="header__cart-preview-price">$ {cartItem.price.toFixed(2)} X {cartItem.count} <span className="header__cart-preview-calc">$ {cartItem.price.toFixed(2) * cartItem.count}.00</span></p>
+              <button className="header__cart-preview-delete" type="button" onClick={() => handleRemoveItem(cartItem.id)}></button>
+              <button className="header__cart-preview-checkout" type="button">Checkout</button>
+            </div>
+            )
+           )
           }
         </div>
       </div>

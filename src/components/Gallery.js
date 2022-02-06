@@ -6,9 +6,9 @@ import product4t from '../images/image-product-4.jpg';*/
 
 const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseModal }) => {
 
-  const [galleryMainImg, setGalleryMainImg] = useState('');
+  //const [galleryMainImg, setGalleryMainImg] = useState('');
   const [activeImg, setActiveImg] = useState('image-product-1');
-  const [index, setIndex] = useState(0);
+  //const [index, setIndex] = useState(0);
   const [sliderAnimation, setSliderAnimation] = useState(false);
   const regex = /image-product-\d/;
   let sourceString;
@@ -111,14 +111,23 @@ const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseM
       }
     }
   }, [isLightbox, isModalOpened]);
-
+// lightbox --> add a class --> pointer events none 
   return( //lightbox ? small class : full     thum 50% --> grid justify-items:center
     <section className='gallery'>
-      {isModalOpened&&isLightbox&&<div className='gallery__prev-btn' onClick={handleLeft}></div>}
-      {isModalOpened&&isLightbox&&<div className='gallery__next-btn' onClick={handleRight}></div>}
-      {isModalOpened&&isLightbox&&<div onClick={onCloseModal}></div>}
+      {isModalOpened
+        && isLightbox
+        && <button className='gallery__btn gallery__btn_prev' type='button' aria-label='show the previous image' onClick={handleLeft}></button>
+      }
+      {isModalOpened
+        && isLightbox
+        &&  <button className='gallery__btn gallery__btn_next' type='button' aria-label='show the next image' onClick={handleRight}></button>
+      }
+      {isModalOpened
+        &&isLightbox
+        &&  <button className='gallery__close-btn' type='button' aria-label='close the gallery' onClick={onCloseModal}></button>
+      }
         <ul className='gallery__container'>
-          <li className={`gallery__main ${sliderAnimation ? 'gallery__main_withAnimation': !isLightbox ? 'gallery__main_hover': ''}`} onClick={handleOpenModal}>
+          <li className={`gallery__main ${sliderAnimation ? 'gallery__main_withAnimation': !isLightbox ? 'gallery__main_hover': ''} ${isLightbox ? 'gallery__main_noevent':''}`} onClick={handleOpenModal}>
             <img  className='gallery__img gallery__img_main' src={images[imgIndex]['alias'] || images[0]['alias']} alt="item"/>
           </li>
           {

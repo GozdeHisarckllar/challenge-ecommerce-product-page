@@ -1,0 +1,10 @@
+.gallery__btn_next {
+  top: 36%;
+  right: -24px;
+  background-image: url('../../../../images/icon-next.svg');
+  background-position: center;
+}
+
+.gallery__btn_next:hover {
+  background-image: url('../../../../images/icon-next-hover.svg');
+}

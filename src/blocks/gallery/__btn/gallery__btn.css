@@ -1,0 +1,17 @@
+.gallery__btn {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background-color: hsl(223, 64%, 98%);
+  background-size: 23%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: all .15s ease-in-out;
+}
+
+.gallery__btn:active {
+  transform: scale(.96);
+}

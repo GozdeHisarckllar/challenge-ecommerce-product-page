@@ -5,8 +5,11 @@
 @import url('./__thumbnail/_active/gallery__thumbnail_active.css');
 @import url('./__thumbnail/_hover/gallery__thumbnail_hover.css');
 @import url('./__img/_thumbnail/gallery__img_thumbnail.css');
-@import url('./__next-btn/gallery__next-btn.css');
-@import url('./__prev-btn/gallery__prev-btn.css');
+@import url('./__btn/gallery__btn.css');
+@import url('./__btn/_next/gallery__btn_next.css');
+@import url('./__btn/_prev/gallery__btn_prev.css');
+@import url('./__main/_noevent/gallery__main_noevent.css');
+@import url('./__close-btn/gallery__close-btn.css');
 
 .gallery {
   position: relative;
