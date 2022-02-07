@@ -1,11 +1,12 @@
 .gallery__main {
   display: block;
   width: 100%;
+  margin-bottom: 28px;
   grid-area: main;
   cursor: pointer;
   transition: all .3s ease-in-out;
 }
-
+/*********************************/
 .gallery__main_hover:hover {
   /*transform: rotate3d(0, 1, -1, 2deg);*/
   /*filter: drop-shadow(-8px 16px 12px rgb(68, 29, 3));*/
@@ -20,6 +21,9 @@
   animation: sliderAnimation .3s 1 linear forwards;
 }
 
+.gallery__main_withLightboxAnimation {
+  animation: sliderLightboxAnimation .3s 1 ease-in-out forwards;
+}
 
 @keyframes sliderAnimation {
   0% {
@@ -34,6 +38,19 @@
   100% {
     transform: scale(1);
     filter: none;
+  }
+}
+
+@keyframes sliderLightboxAnimation {
+  0% {
+    opacity: 0;
+    transform: translateX(-12px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+
   }
 }
 

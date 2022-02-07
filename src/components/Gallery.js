@@ -10,6 +10,7 @@ const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseM
   const [activeImg, setActiveImg] = useState('image-product-1');
   //const [index, setIndex] = useState(0);
   const [sliderAnimation, setSliderAnimation] = useState(false);
+  const [sliderLightboxAnimation, setSliderLightboxAnimation] = useState(false);
   const regex = /image-product-\d/;
   let sourceString;
   const images = productData[0].images;
@@ -109,6 +110,29 @@ const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseM
         document.removeEventListener('click', triggerAnime);
         document.removeEventListener('mouseout', stopAnime);
       }
+    } else if (isModalOpened && isLightbox) {
+
+      const triggerLightBoxAnime = (event) => {
+        if (event.target.classList.contains('gallery__thumbnail') || 
+        event.target.classList.contains('gallery__btn')) {
+          setSliderLightboxAnimation(true);
+        }
+      }
+
+      const stopLightboxAnime = (event) => {
+        if (event.target.classList.contains('gallery__thumbnail') || 
+          event.target.classList.contains('gallery__btn')) {
+          setSliderLightboxAnimation(false);
+        }
+      }
+        
+      document.addEventListener('mouseup', triggerLightBoxAnime);
+      document.addEventListener('mousedown', stopLightboxAnime);
+
+      return () => {
+        document.removeEventListener('mouseup', triggerLightBoxAnime);
+        document.removeEventListener('mousedown', stopLightboxAnime);
+      }
     }
   }, [isLightbox, isModalOpened]);
 // lightbox --> add a class --> pointer events none 
@@ -126,18 +150,20 @@ const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseM
         &&isLightbox
         &&  <button className='gallery__close-btn' type='button' aria-label='close the gallery' onClick={onCloseModal}></button>
       }
-        <ul className='gallery__container'>
-          <li className={`gallery__main ${sliderAnimation ? 'gallery__main_withAnimation': !isLightbox ? 'gallery__main_hover': ''} ${isLightbox ? 'gallery__main_noevent':''}`} onClick={handleOpenModal}>
+        <div className='gallery__container'>
+          <picture className={`gallery__main ${sliderAnimation ? 'gallery__main_withAnimation': !isLightbox ? 'gallery__main_hover': /*''*/sliderLightboxAnimation ? 'gallery__main_withLightboxAnimation':''} ${isLightbox ? 'gallery__main_noevent':''}`} onClick={handleOpenModal}>
             <img  className='gallery__img gallery__img_main' src={images[imgIndex]['alias'] || images[0]['alias']} alt="item"/>
-          </li>
+          </picture>
+          <ul className={`gallery__thumbnail-container ${isLightbox ? 'gallery__thumbnail-container_type_lightbox':''}`}>
           {
             images.map((img) => (
               <li key= {img.index} className={`gallery__thumbnail ${(activeImg === img.regexMatch)||(imgIndex === img.index) ?'gallery__thumbnail_active':'gallery__thumbnail_hover'}`} onClick={handleImgClick}>
                 <img  className='gallery__img gallery__img_thumbnail' src={img.alias} alt="appearence of the items from different angles"/>
               </li>
             ))
-          }    
-        </ul>
+          }
+          </ul>    
+        </div>
       </section>
   );
 }

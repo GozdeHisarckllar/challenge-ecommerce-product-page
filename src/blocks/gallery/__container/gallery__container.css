@@ -5,9 +5,12 @@
   margin: 0 auto;
   padding: 0;
   list-style: none;
-  display: grid;
+  /*display: grid;
   grid-template-areas: 'main main main main'
                         'thumb1 thumb2 thumb3 thumb4';
   row-gap: 28px;
-  column-gap: 25px;                    
+  column-gap: 25px;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: center;               
 }

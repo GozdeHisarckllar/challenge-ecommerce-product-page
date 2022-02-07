@@ -1,4 +1,4 @@
 .header__shopping-cart-notification_active {
-    display: grid;
-    place-items: center;
+    visibility: visible;
+    opacity: 1;
 }

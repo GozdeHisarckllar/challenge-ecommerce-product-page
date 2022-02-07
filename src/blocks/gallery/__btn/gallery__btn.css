@@ -10,6 +10,7 @@
   background-repeat: no-repeat;
   cursor: pointer;
   transition: all .15s ease-in-out;
+  z-index: 2;
 }
 
 .gallery__btn:active {

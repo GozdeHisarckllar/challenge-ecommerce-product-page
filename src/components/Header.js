@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../images/logo.svg';
 //import cartPreviewImg from '../images/image-product-1-thumbnail.jpg';
@@ -6,9 +6,9 @@ import logo from '../images/logo.svg';
 const Header = ({ cartData, onRemoveCart }) => {// constant itemCount
   //const [isCartEmpty, setIsCardEmpty] = useState(false);// true/******** */
   // img src constant
-  const count=3;
 
   const [isVisible, setIsVisible] = useState(false);
+  const [notificationCount, setNotificationCount] = useState(0);
 
   function handleMouseOver(){
     setIsVisible(true);
@@ -22,10 +22,23 @@ const Header = ({ cartData, onRemoveCart }) => {// constant itemCount
     onRemoveCart(itemId);
   }
 
+  useEffect(() => {
+    const count = cartData.reduce((prev, current) => {
+      if (prev instanceof Object) {
+        return prev['count'] + current['count'];
+      } else {
+        return prev + current['count'];
+      }  
+    }, 0);
+    setNotificationCount(count);
+  }, [cartData]);
+
   return(
     <header className="header">
       <div className="header__main">
-        <img className="header__logo" src={logo} alt="ecommerce brand logo"/>
+        <Link className="header__logo-link" to="/">
+          <img className="header__logo" src={logo} alt="sneakers brand logo"/>
+        </Link>
         <nav className="header__navbar">
           <Link className="header__navbar-link" to="/">Collections</Link>
           <Link className="header__navbar-link" to="/">Women</Link>
@@ -36,9 +49,9 @@ const Header = ({ cartData, onRemoveCart }) => {// constant itemCount
       </div>
       <div className="header__account">
         <div className="header__shopping-info">
-          <button className="header__shopping-cart" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
-            <div className="header__shopping-cart-notification header__shopping-cart-notification_active">
-              <p className="header__shopping-cart-count">{count}</p>
+          <button className="header__shopping-cart" type="button" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+            <div className={`header__shopping-cart-notification ${cartData.length ? 'header__shopping-cart-notification_active':''}`}>
+              <p className="header__shopping-cart-count">{notificationCount}</p>
             </div>
           </button>
           <Link to="/" className="header__account-profile" />

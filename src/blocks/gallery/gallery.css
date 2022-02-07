@@ -10,7 +10,8 @@
 @import url('./__btn/_prev/gallery__btn_prev.css');
 @import url('./__main/_noevent/gallery__main_noevent.css');
 @import url('./__close-btn/gallery__close-btn.css');
-
+@import url('./__thumbnail-container/gallery__thumbnail-container.css');
+@import url('./__thumbnail-container/_type/gallery__thumbnail-container_type_lightbox.css');
 .gallery {
   position: relative;
   width: 100%;

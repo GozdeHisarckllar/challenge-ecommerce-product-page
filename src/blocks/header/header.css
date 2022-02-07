@@ -10,7 +10,7 @@
 @import url('./__shopping-cart-count/header__shopping-cart-count.css');
 @import url('./__cart-preview-popup/header__cart-preview-popup.css');
 @import url('./__cart-preview-title/header__cart-preview-title.css');
-@import url('./__shopping-cart-notification_active/header__shopping-cart-notification_active.css');
+@import url('./__shopping-cart-notification/_active/header__shopping-cart-notification_active.css');
 @import url('./__cart-preview-empty/header__cart-preview-empty.css');
 @import url('./__cart-preview-full/header__cart-preview-full.css');
 @import url('./__cart-preview-img/header__cart-preview-img.css');
