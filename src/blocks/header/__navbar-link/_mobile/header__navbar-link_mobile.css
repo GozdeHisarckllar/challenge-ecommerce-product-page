@@ -1,0 +1,18 @@
+.header__navbar-link_mobile {
+  margin-left: 10px;
+  font-size: 20px;
+  color: hsl(0, 0%, 0%);
+  letter-spacing: .2px;
+}
+
+.header__navbar-link_mobile::after {
+  content: none;
+}
+
+.header__navbar-link_mobile:hover::after {
+  transform: none;
+}
+
+.header__navbar-link_mobile:hover {
+  color: hsl(26, 100%, 55%)/*hsla(228, 14%, 43%, .9)*/;
+}

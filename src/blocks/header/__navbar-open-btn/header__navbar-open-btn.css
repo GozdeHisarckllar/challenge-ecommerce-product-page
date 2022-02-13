@@ -1,0 +1,17 @@
+.header__navbar-open-btn {
+  display: none;
+  width: 16px;
+  height: 15px;
+  background: center/100% no-repeat transparent url('../../../images/icon-menu.svg');
+  cursor: pointer;
+}
+
+.header__navbar-open-btn:hover {
+  background-color: rgba(231, 117, 29, .082);
+}
+
+@media screen and (max-width: 930px) {
+  .header__navbar-open-btn {
+    display: block;
+  }
+}

@@ -4,3 +4,15 @@
   font-weight: 700;
   color: #fff;
 }
+
+@media screen and (max-width: 1024px) {
+  .product__add-btn-label {
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 820px) {
+  .product__add-btn-label {
+    font-size: 16px;
+  }
+}

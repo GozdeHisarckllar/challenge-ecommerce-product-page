@@ -8,3 +8,10 @@
 .gallery__btn_next:hover {
   background-image: url('../../../../images/icon-next-hover.svg');
 }
+
+@media screen and (max-width: 820px) {
+  .gallery__btn_next {
+    top: 52%;
+    right: 16px;
+  }
+}

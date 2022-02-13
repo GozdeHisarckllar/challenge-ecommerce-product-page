@@ -1,0 +1,4 @@
+.header__navbar-side-panel_closed {
+  visibility: hidden;
+  transform: translate3d(-100%, 0, 0);
+}

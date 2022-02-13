@@ -8,3 +8,10 @@
 .gallery__btn_prev:hover {
   background-image: url('../../../../images/icon-previous-hover.svg');
 }
+
+@media screen and (max-width: 820px) {
+  .gallery__btn_prev {
+    top: 52%;
+    left: 16px;
+  }
+}

@@ -1,0 +1,7 @@
+
+@media screen and (max-width: 600px) {
+  .header__cart-preview-popup_mobile {
+    visibility: visible;
+    opacity: 1;
+ }
+}

@@ -12,7 +12,17 @@
 @import url('./__close-btn/gallery__close-btn.css');
 @import url('./__thumbnail-container/gallery__thumbnail-container.css');
 @import url('./__thumbnail-container/_type/gallery__thumbnail-container_type_lightbox.css');
+@import url('./__close-btn/_visible/gallery__close-btn_visible.css');
+@import url('./__btn/_visible/gallery__btn_visible.css');
+
 .gallery {
   position: relative;
   width: 100%;
+}
+
+@media screen  and (max-width: 820px){
+  .gallery {
+    top: -50px;
+    left: 0;
+  }
 }

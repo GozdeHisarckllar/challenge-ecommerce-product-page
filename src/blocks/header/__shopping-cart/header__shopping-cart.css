@@ -28,3 +28,10 @@
 .header__shopping-cart:hover::after {
     opacity: 1;
 }
+
+@media screen  and (max-width: 600px) {
+  .header__shopping-cart {
+    width: 20px;
+    height: 18px;
+  }
+}

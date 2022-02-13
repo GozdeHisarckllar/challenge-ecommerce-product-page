@@ -4,3 +4,16 @@
   font-weight: 700;
   color: hsl(220, 13%, 13%);
 }
+
+@media screen and (max-width: 1024px) {
+  .product__title {
+    margin: 12px 0 22px;
+    font-size: 32px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .product__title {
+    font-size: 26px;
+  }
+}

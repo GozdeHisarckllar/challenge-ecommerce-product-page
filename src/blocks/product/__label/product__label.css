@@ -6,3 +6,15 @@
   font-weight: 700;
   letter-spacing: 1.25px;
 }
+
+@media screen  and (max-width: 820px) {
+  .product__label {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .product__label {
+    font-size: 12px;
+  }
+}

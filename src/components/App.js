@@ -3,7 +3,8 @@ import Header from './Header';
 import Main from './Main';
 import ModalWindow from './ModalWindow';
 import productData from '../utils/data';
-//import productData from '../utils/data';
+import Footer from './Footer';
+//max width 820px
 // import logo from './logo.svg';
 
 function App() {
@@ -59,6 +60,7 @@ function App() {
         onCloseModal={handleCloseModal}
         onAddCart={handleAddCart}
       />
+      <Footer />
       <ModalWindow
         productData={productData}
         isModalOpened={isModalOpened} 

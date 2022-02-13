@@ -11,6 +11,7 @@ const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseM
   //const [index, setIndex] = useState(0);
   const [sliderAnimation, setSliderAnimation] = useState(false);
   const [sliderLightboxAnimation, setSliderLightboxAnimation] = useState(false);
+  const [sliderMobileAnimation, setSliderMobileAnimation] = useState(false);
   const regex = /image-product-\d/;
   let sourceString;
   const images = productData[0].images;
@@ -76,12 +77,12 @@ const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseM
 
   ///////
   function handleRight() {
-    imgIndex === 3 ? setImgIndex(0): setImgIndex(imgIndex+1);
+    imgIndex === images.length-1 ? setImgIndex(0): setImgIndex(imgIndex+1);
     setActiveImg(false);
   }
 
   function handleLeft() {
-    imgIndex>0 ? setImgIndex(imgIndex-1):setImgIndex(3);
+    imgIndex > 0 ? setImgIndex(imgIndex-1):setImgIndex(images.length-1);/*3*/
     setActiveImg(false);
   }////////////
 
@@ -102,13 +103,29 @@ const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseM
           setSliderAnimation(false);
         }
       }
+
+      const triggerMobileAnime = (event) => {
+        if (event.target.classList.contains('gallery__btn')) {
+          setSliderMobileAnimation(true);
+        }
+      }
+
+      const stopMobileAnime = (event) => {
+        if (event.target.classList.contains('gallery__btn')) {
+          setSliderMobileAnimation(false);
+        }
+      }
         
       document.addEventListener('click', triggerAnime);
       document.addEventListener('mouseout', stopAnime);
+      document.addEventListener('mouseup', triggerMobileAnime);
+      document.addEventListener('mousedown', stopMobileAnime);
 
       return () => {
         document.removeEventListener('click', triggerAnime);
         document.removeEventListener('mouseout', stopAnime);
+        document.removeEventListener('mouseup', triggerMobileAnime);
+      document.removeEventListener('mousedown', stopMobileAnime);
       }
     } else if (isModalOpened && isLightbox) {
 
@@ -138,20 +155,13 @@ const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseM
 // lightbox --> add a class --> pointer events none 
   return( //lightbox ? small class : full     thum 50% --> grid justify-items:center
     <section className='gallery'>
-      {isModalOpened
-        && isLightbox
-        && <button className='gallery__btn gallery__btn_prev' type='button' aria-label='show the previous image' onClick={handleLeft}></button>
-      }
-      {isModalOpened
-        && isLightbox
-        &&  <button className='gallery__btn gallery__btn_next' type='button' aria-label='show the next image' onClick={handleRight}></button>
-      }
-      {isModalOpened
-        &&isLightbox
-        &&  <button className='gallery__close-btn' type='button' aria-label='close the gallery' onClick={onCloseModal}></button>
-      }
+     
+        <button className={`gallery__btn gallery__btn_prev ${isModalOpened&&isLightbox ? 'gallery__btn_visible' : ''}`} type='button' aria-label='show the previous image' onClick={handleLeft}></button>
+        <button className={`gallery__btn gallery__btn_next ${isModalOpened&&isLightbox ? 'gallery__btn_visible' : ''}`} type='button' aria-label='show the next image' onClick={handleRight}></button>
+        <button className={`gallery__close-btn ${isModalOpened&&isLightbox ? 'gallery__close-btn_visible' : ''}`} type='button' aria-label='close the gallery' onClick={onCloseModal}></button>
+      
         <div className='gallery__container'>
-          <picture className={`gallery__main ${sliderAnimation ? 'gallery__main_withAnimation': !isLightbox ? 'gallery__main_hover': /*''*/sliderLightboxAnimation ? 'gallery__main_withLightboxAnimation':''} ${isLightbox ? 'gallery__main_noevent':''}`} onClick={handleOpenModal}>
+          <picture className={`gallery__main ${sliderAnimation ? 'gallery__main_withAnimation': !isLightbox ? 'gallery__main_hover': /*''*/sliderLightboxAnimation ? 'gallery__main_withLightboxAnimation':''} ${isLightbox ? 'gallery__main_noevent':''} ${sliderMobileAnimation ? 'gallery__main_withLightboxAnimation':''}`} onClick={handleOpenModal}>
             <img  className='gallery__img gallery__img_main' src={images[imgIndex]['alias'] || images[0]['alias']} alt="item"/>
           </picture>
           <ul className={`gallery__thumbnail-container ${isLightbox ? 'gallery__thumbnail-container_type_lightbox':''}`}>

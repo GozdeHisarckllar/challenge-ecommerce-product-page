@@ -21,3 +21,10 @@
   background-color: hsl(26, 96%, 41%);
   filter: none;
 }
+
+@media screen and (max-width: 820px) {
+  .product__add-btn {
+    margin-top: 26px;
+    padding: 20px 0;
+  }
+}

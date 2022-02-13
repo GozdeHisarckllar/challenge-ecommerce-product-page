@@ -1,0 +1,9 @@
+.footer__info-link {
+  text-decoration: none;
+  color: hsl(27, 92%, 35%);
+  transition: all .3s ease-in-out;
+}
+
+.footer__info-link:hover {
+  color: hsl(27, 94%, 13%);
+}

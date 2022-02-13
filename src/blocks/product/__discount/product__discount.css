@@ -7,3 +7,10 @@
   color: hsl(26, 100%, 55%);
   background-color: hsl(25, 100%, 94%);
 }
+
+@media screen and (max-width: 600px) {
+  .product__discount {
+    padding: 4px 8px;
+    font-size: 14px;
+  }
+}

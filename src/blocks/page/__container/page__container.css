@@ -2,5 +2,18 @@
     max-width: 1440px;
     width: calc(100% - 184px);
     min-width: 375px;
+    /*height: 100vh;*/
     margin: 0 auto;
+}
+
+@media screen and (max-width: 930px) {
+  .page__container {
+      width: calc(100% - 104px);
+  }
+}
+
+@media screen  and (max-width: 600px) {
+  .page__container {
+    width: 100%;
+  }
 }

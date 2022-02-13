@@ -5,3 +5,15 @@
   line-height: 1.5;
   color: hsl(210, 8%, 38%);
 }
+
+@media screen and (max-width: 1024px) {
+  .product__description {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .product__description {
+    margin-bottom: 26px;
+  }
+}

@@ -1,25 +1,42 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../images/logo.svg';
-//import cartPreviewImg from '../images/image-product-1-thumbnail.jpg';
-
+//Navbar component with modifier
+//     transform: translate3d(-22%, 0, 0);
 const Header = ({ cartData, onRemoveCart }) => {// constant itemCount
   //const [isCartEmpty, setIsCardEmpty] = useState(false);// true/******** */
   // img src constant
 
   const [isVisible, setIsVisible] = useState(false);
   const [notificationCount, setNotificationCount] = useState(0);
+  const [isNavbarPanelOpened, setIsNavbarPanelOpened] = useState(false);
 
-  function handleMouseOver(){
+  /*function handleMouseOver(){
     setIsVisible(true);
   }
 
   function handleMouseOut() {
     setIsVisible(false);
-  }
+  }*/
 
   function handleRemoveItem(itemId) {
     onRemoveCart(itemId);
+  }
+
+  function handleOpenNavbarPanel() {
+    setIsNavbarPanelOpened(true);
+  }
+
+  function handleCloseNavbarPanel() {
+    setIsNavbarPanelOpened(false);
+  }
+
+  function handleToggleCartPopup() {
+    setIsVisible(!isVisible);
+  }
+
+  function handleCloseCartPopup() {
+    setIsVisible(false);
   }
 
   useEffect(() => {
@@ -33,9 +50,28 @@ const Header = ({ cartData, onRemoveCart }) => {// constant itemCount
     setNotificationCount(count);
   }, [cartData]);
 
+  useEffect(() => {
+    const closeNavbarPanel = (event) => {
+      return event.key === 'Escape' ? handleCloseNavbarPanel() : '';
+    }
+
+    const closeCartPopup = (event) => {
+      return !Array.from(event.target.classList).some(classname => /(?:header__(?:shopping-cart|cart-preview).*|product__(?:count|add-btn))/.test(classname)) ? handleCloseCartPopup() : '';
+    }
+
+    document.addEventListener('keyup', closeNavbarPanel);
+    document.addEventListener('click', closeCartPopup);
+
+    return () => {
+      document.removeEventListener('keyup', closeNavbarPanel);
+      document.removeEventListener('click', closeCartPopup);
+    }
+  }, []);
+
   return(
     <header className="header">
       <div className="header__main">
+        <div className='header__navbar-open-btn' onClick={handleOpenNavbarPanel}></div>
         <Link className="header__logo-link" to="/">
           <img className="header__logo" src={logo} alt="sneakers brand logo"/>
         </Link>
@@ -46,19 +82,30 @@ const Header = ({ cartData, onRemoveCart }) => {// constant itemCount
           <Link className="header__navbar-link" to="/">About</Link>
           <Link className="header__navbar-link" to="/">Contact</Link>
         </nav>
+        <div className={`header__navbar-panel-overlay ${isNavbarPanelOpened ? 'header__navbar-panel-overlay_opened' : 'header__navbar-panel-overlay_closed'}`} onClick={handleCloseNavbarPanel}></div>
+        <div className={`header__navbar-side-panel ${isNavbarPanelOpened ? 'header__navbar-side-panel_opened' : 'header__navbar-side-panel_closed'}`}>
+          <div className='header__navbar-close-btn' onClick={handleCloseNavbarPanel}></div>
+          <nav className="header__navbar header__navbar_mobile">
+            <Link className="header__navbar-link header__navbar-link_mobile" to="/">Collections</Link>
+            <Link className="header__navbar-link header__navbar-link_mobile" to="/">Women</Link>
+            <Link className="header__navbar-link header__navbar-link_mobile" to="/">Men</Link>
+            <Link className="header__navbar-link header__navbar-link_mobile" to="/">About</Link>
+            <Link className="header__navbar-link header__navbar-link_mobile" to="/">Contact</Link>
+          </nav>
+        </div>
       </div>
       <div className="header__account">
         <div className="header__shopping-info">
-          <button className="header__shopping-cart" type="button" onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}>
+          <button className="header__shopping-cart" type="button" /*onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}*/ onClick={handleToggleCartPopup}>
             <div className={`header__shopping-cart-notification ${cartData.length ? 'header__shopping-cart-notification_active':''}`}>
               <p className="header__shopping-cart-count">{notificationCount}</p>
             </div>
           </button>
           <Link to="/" className="header__account-profile" />
         </div>
-        <div className="header__cart-preview-popup" 
-          style={isVisible ? { visibility:'visible', opacity:1} : { visibility:'hidden', opacity:0}}
-          onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}
+        <div className={`header__cart-preview-popup ${isVisible ? 'header__cart-preview-popup_opened':''}`}
+          /*onMouseOver={handleMouseOver} 
+          onMouseOut={handleMouseOut}*/
         >
           <p className="header__cart-preview-title">Cart</p>
           { cartData.length === 0 ? 

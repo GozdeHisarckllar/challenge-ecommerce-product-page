@@ -1,0 +1,12 @@
+.header__navbar_mobile {
+  min-height: 220px;
+  margin-top: 68px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 930px) {
+  .header__navbar_mobile {
+    display: flex;
+  }
+}

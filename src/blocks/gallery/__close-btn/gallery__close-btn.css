@@ -1,4 +1,5 @@
 .gallery__close-btn {
+  display: none;
   position: absolute;
   top: -40px;
   right: 0;
