@@ -31,6 +31,8 @@
 @import url('./__navbar-open-btn/header__navbar-open-btn.css');
 @import url('./__logo-link/header__logo-link.css');
 @import url('./__cart-preview-popup/_opened/header__cart-preview-popup_opened.css');
+@import url('./__cart-list/header__cart-list.css');
+@import url('./__cart-list/_overflow/header__cart-list_overflow.css');
 
 .header {
     width: 100%;

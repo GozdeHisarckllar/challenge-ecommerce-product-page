@@ -10,3 +10,9 @@
   transition: all .3s ease-in-out;
   z-index: 3;
 }
+
+@media screen and (max-width: 600px) {
+  .header__navbar-side-panel {
+    width: 250px;
+  }
+}

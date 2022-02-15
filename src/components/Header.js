@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Navbar from './Navbar';
 import logo from '../images/logo.svg';
 //Navbar component with modifier
 //     transform: translate3d(-22%, 0, 0);
@@ -59,12 +60,20 @@ const Header = ({ cartData, onRemoveCart }) => {// constant itemCount
       return !Array.from(event.target.classList).some(classname => /(?:header__(?:shopping-cart|cart-preview).*|product__(?:count|add-btn))/.test(classname)) ? handleCloseCartPopup() : '';
     }
 
+    const closeNavbarPanelWithResizing = (event) => {
+      if (event.target.innerWidth > 930){
+        return handleCloseNavbarPanel();
+      }
+    }
+
     document.addEventListener('keyup', closeNavbarPanel);
     document.addEventListener('click', closeCartPopup);
+    window.addEventListener('resize', closeNavbarPanelWithResizing);
 
     return () => {
       document.removeEventListener('keyup', closeNavbarPanel);
       document.removeEventListener('click', closeCartPopup);
+      window.removeEventListener('resize', closeNavbarPanelWithResizing)
     }
   }, []);
 
@@ -75,23 +84,11 @@ const Header = ({ cartData, onRemoveCart }) => {// constant itemCount
         <Link className="header__logo-link" to="/">
           <img className="header__logo" src={logo} alt="sneakers brand logo"/>
         </Link>
-        <nav className="header__navbar">
-          <Link className="header__navbar-link" to="/">Collections</Link>
-          <Link className="header__navbar-link" to="/">Women</Link>
-          <Link className="header__navbar-link" to="/">Men</Link>
-          <Link className="header__navbar-link" to="/">About</Link>
-          <Link className="header__navbar-link" to="/">Contact</Link>
-        </nav>
+          <Navbar navbarModifier='' linkModifier=''/>
         <div className={`header__navbar-panel-overlay ${isNavbarPanelOpened ? 'header__navbar-panel-overlay_opened' : 'header__navbar-panel-overlay_closed'}`} onClick={handleCloseNavbarPanel}></div>
         <div className={`header__navbar-side-panel ${isNavbarPanelOpened ? 'header__navbar-side-panel_opened' : 'header__navbar-side-panel_closed'}`}>
           <div className='header__navbar-close-btn' onClick={handleCloseNavbarPanel}></div>
-          <nav className="header__navbar header__navbar_mobile">
-            <Link className="header__navbar-link header__navbar-link_mobile" to="/">Collections</Link>
-            <Link className="header__navbar-link header__navbar-link_mobile" to="/">Women</Link>
-            <Link className="header__navbar-link header__navbar-link_mobile" to="/">Men</Link>
-            <Link className="header__navbar-link header__navbar-link_mobile" to="/">About</Link>
-            <Link className="header__navbar-link header__navbar-link_mobile" to="/">Contact</Link>
-          </nav>
+          <Navbar navbarModifier='header__navbar_mobile' linkModifier='header__navbar-link_mobile'/>
         </div>
       </div>
       <div className="header__account">
@@ -111,17 +108,19 @@ const Header = ({ cartData, onRemoveCart }) => {// constant itemCount
           { cartData.length === 0 ? 
           <p className="header__cart-preview-empty">Your cart is empty.</p>
           :
-            cartData.map((cartItem) => (
-            <div key={cartItem.id} className="header__cart-preview-full">
+          <ul className={`header__cart-list ${cartData.length > 1 ? 'header__cart-list_overflow' : ''}`}>
+            {cartData.map((cartItem) => (
+            <li key={cartItem.id} className="header__cart-preview-full">
               <img className="header__cart-preview-img" src={cartItem.image} alt="sneakers"/>
               <p className="header__cart-preview-name">Fall Limited Edition Sneakers</p>
               <p className="header__cart-preview-price">$ {cartItem.price.toFixed(2)} X {cartItem.count} <span className="header__cart-preview-calc">$ {cartItem.price.toFixed(2) * cartItem.count}.00</span></p>
               <button className="header__cart-preview-delete" type="button" onClick={() => handleRemoveItem(cartItem.id)}></button>
-              <button className="header__cart-preview-checkout" type="button">Checkout</button>
-            </div>
-            )
-           )
+            </li>
+             )
+            ) }
+          </ul>  
           }
+          {cartData.length !== 0 && <button className="header__cart-preview-checkout" type="button">Checkout</button>}
         </div>
       </div>
     </header>

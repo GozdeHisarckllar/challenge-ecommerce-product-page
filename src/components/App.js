@@ -4,8 +4,7 @@ import Main from './Main';
 import ModalWindow from './ModalWindow';
 import productData from '../utils/data';
 import Footer from './Footer';
-//max width 820px
-// import logo from './logo.svg';
+//navbar component
 
 function App() {
   const [isModalOpened, setIsModalOpened] = useState(false);
@@ -70,5 +69,8 @@ function App() {
     </div>
   );
 }
-// main + modal window router /product/:id  main ->useParams  prductData findbyid.images pass images to gallery
+
 export default App;
+/// Simulation - Rendering data from API
+// first way ->main + modal window or pass item data to modal -> Link to='/:item.id') -> (Single router) Router /product/:id  main ->useParams  prductData findbyid.images pass images to gallery
+// second way ->data.map((item) => list item -> Link to='/:item.id') + (Many routers) Router path='/item.id' data={item.data})

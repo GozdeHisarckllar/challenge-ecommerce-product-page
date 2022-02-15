@@ -10,7 +10,24 @@
     box-shadow: 0 12px 15px 2px rgba(17, 17, 17, 0.22);
     display: flex;
     flex-direction: column;
+    justify-content: center;
     visibility: hidden;
     opacity: 0;
-    transition: all .3s ease-in-out;
+    transition: visibility .3s ease-in-out, opacity .3s ease-in-out;
+}
+
+@media screen and (max-width: 600px) {
+    .header__cart-preview-popup {
+        width: calc(100vw - 30px);
+        /*height: 65vw;*/
+        height: 250px;
+        top: 75px;
+        right: -22px;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .header__cart-preview-popup {
+        top: 52px;
+    }
 }

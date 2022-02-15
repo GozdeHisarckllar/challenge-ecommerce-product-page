@@ -2,6 +2,7 @@
 
 This is a solution to the [E-commerce product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
+* Frontend for the Ecommerce product app that let users to preview a product through the gallery/lightbox and enables user to use cart functionalities such as adding and removing item
 ## Table of contents
 
 - [Overview](#overview)

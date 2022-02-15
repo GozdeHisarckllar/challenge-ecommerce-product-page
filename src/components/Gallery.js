@@ -160,7 +160,7 @@ const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseM
         <button className={`gallery__btn gallery__btn_next ${isModalOpened&&isLightbox ? 'gallery__btn_visible' : ''}`} type='button' aria-label='show the next image' onClick={handleRight}></button>
         <button className={`gallery__close-btn ${isModalOpened&&isLightbox ? 'gallery__close-btn_visible' : ''}`} type='button' aria-label='close the gallery' onClick={onCloseModal}></button>
       
-        <div className='gallery__container'>
+        <div className={`gallery__container ${isLightbox ? 'gallery__container_type_lightbox':''}`}>
           <picture className={`gallery__main ${sliderAnimation ? 'gallery__main_withAnimation': !isLightbox ? 'gallery__main_hover': /*''*/sliderLightboxAnimation ? 'gallery__main_withLightboxAnimation':''} ${isLightbox ? 'gallery__main_noevent':''} ${sliderMobileAnimation ? 'gallery__main_withLightboxAnimation':''}`} onClick={handleOpenModal}>
             <img  className='gallery__img gallery__img_main' src={images[imgIndex]['alias'] || images[0]['alias']} alt="item"/>
           </picture>
