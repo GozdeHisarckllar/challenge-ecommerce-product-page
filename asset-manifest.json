@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/challenge-ecommerce-product-page/static/css/main.3faebc58.chunk.css",
+    "main.js": "/challenge-ecommerce-product-page/static/js/main.8ba80f24.chunk.js",
+    "main.js.map": "/challenge-ecommerce-product-page/static/js/main.8ba80f24.chunk.js.map",
+    "runtime-main.js": "/challenge-ecommerce-product-page/static/js/runtime-main.30e026fe.js",
+    "runtime-main.js.map": "/challenge-ecommerce-product-page/static/js/runtime-main.30e026fe.js.map",
+    "static/js/2.173ee2b3.chunk.js": "/challenge-ecommerce-product-page/static/js/2.173ee2b3.chunk.js",
+    "static/js/2.173ee2b3.chunk.js.map": "/challenge-ecommerce-product-page/static/js/2.173ee2b3.chunk.js.map",
+    "static/js/3.ed0a4226.chunk.js": "/challenge-ecommerce-product-page/static/js/3.ed0a4226.chunk.js",
+    "static/js/3.ed0a4226.chunk.js.map": "/challenge-ecommerce-product-page/static/js/3.ed0a4226.chunk.js.map",
+    "index.html": "/challenge-ecommerce-product-page/index.html",
+    "static/css/main.3faebc58.chunk.css.map": "/challenge-ecommerce-product-page/static/css/main.3faebc58.chunk.css.map",
+    "static/js/2.173ee2b3.chunk.js.LICENSE.txt": "/challenge-ecommerce-product-page/static/js/2.173ee2b3.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/challenge-ecommerce-product-page/static/media/icon-previous.80616402.svg",
+    "static/media/icon-minus.f5073aa8.svg": "/challenge-ecommerce-product-page/static/media/icon-minus.f5073aa8.svg",
+    "static/media/icon-plus.b297868c.svg": "/challenge-ecommerce-product-page/static/media/icon-plus.b297868c.svg",
+    "static/media/image-product-1.520cc50b.jpg": "/challenge-ecommerce-product-page/static/media/image-product-1.520cc50b.jpg",
+    "static/media/image-product-2.c8bb0aac.jpg": "/challenge-ecommerce-product-page/static/media/image-product-2.c8bb0aac.jpg",
+    "static/media/image-product-3.af5c71ba.jpg": "/challenge-ecommerce-product-page/static/media/image-product-3.af5c71ba.jpg",
+    "static/media/image-product-4.9962862e.jpg": "/challenge-ecommerce-product-page/static/media/image-product-4.9962862e.jpg",
+    "static/media/logo.4fe9c1e8.svg": "/challenge-ecommerce-product-page/static/media/logo.4fe9c1e8.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.30e026fe.js",
+    "static/js/2.173ee2b3.chunk.js",
+    "static/css/main.3faebc58.chunk.css",
+    "static/js/main.8ba80f24.chunk.js"
+  ]
+}
