@@ -1,81 +1,37 @@
 import { useEffect, useState } from 'react';
-/*import product1 from '../images/image-product-1.jpg';
-import product2t from '../images/image-product-2.jpg';
-import product3t from '../images/image-product-3.jpg';
-import product4t from '../images/image-product-4.jpg';*/
 
 const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseModal }) => {
 
-  //const [galleryMainImg, setGalleryMainImg] = useState('');
   const [activeImg, setActiveImg] = useState('image-product-1');
-  //const [index, setIndex] = useState(0);
   const [sliderAnimation, setSliderAnimation] = useState(false);
   const [sliderLightboxAnimation, setSliderLightboxAnimation] = useState(false);
   const [sliderMobileAnimation, setSliderMobileAnimation] = useState(false);
   const regex = /image-product-\d/;
   let sourceString;
-  const images = productData[0].images;
-  
-  /*const images = [
-    {
-      alias: product1,
-      index: 0,
-      regexMatch:'image-product-1'
-    }, 
-    {
-      alias: product2t,
-      index: 1,
-      regexMatch:'image-product-2'
-    }, 
-    {
-      alias: product3t,
-      index: 2,
-      regexMatch:'image-product-3'
-    }, 
-    {
-      alias: product4t,
-      index: 3,
-      regexMatch:'image-product-4'
-  }];*/
+  const images = productData[0].images;//if there is mode data, mapping for Gallery and product data can be used
 
    
   function handleImgClick(event) {
     if (event.target.classList.contains('gallery__img')) {
-      //setGalleryMainImg(event.target.src);
       sourceString = event.target.src.toString();
     } else {
-      //setGalleryMainImg(event.target.querySelector('.gallery__img').src);
       sourceString = event.target.querySelector('.gallery__img').src.toString();
     }
     
-    //setActiveImg(sourceString.match(regex)[0]);
-    //console.log(sourceString.match(regex)[0]);
-
-    
-    ///////////////
     const matchedImg = images.find((img) => {
       return img.regexMatch === sourceString.match(regex)[0];
     });
-  //setGalleryMainImg(matchedImg.alias);
-  setImgIndex(matchedImg.index);
-  //setIndex(matchedImg.index)
-  setActiveImg(matchedImg.regexMatch);
-    //setActiveImg(matchedImg.index);
+ 
+    setImgIndex(matchedImg.index);
+  
+    setActiveImg(matchedImg.regexMatch);
+    
     setSliderAnimation(false);
   }
 
-  /*useState(() => {
-    const img = images.find((img) => {
-      return img.index === imgIndex;
-    })
-    console.log(imgIndex);
-    
+  const [imgIndex, setImgIndex] = useState(0);
 
-    //setGalleryMainImg(img.alias);
-  });*/
-  const [imgIndex, setImgIndex] = useState(0)
-
-  ///////
+  
   function handleRight() {
     imgIndex === images.length-1 ? setImgIndex(0): setImgIndex(imgIndex+1);
     setActiveImg(false);
@@ -84,14 +40,14 @@ const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseM
   function handleLeft() {
     imgIndex > 0 ? setImgIndex(imgIndex-1):setImgIndex(images.length-1);/*3*/
     setActiveImg(false);
-  }////////////
+  }
 
   function handleOpenModal() {
     onOpenModal();
   }
 
   useEffect(() => {
-    if (!isModalOpened && !isLightbox ) {//add seperate anime for lightbox if lightbox === true
+    if (!isModalOpened && !isLightbox ) {
       const triggerAnime = (event) => {
         if (event.target.classList.contains('gallery__thumbnail')) {
           setSliderAnimation(true);
@@ -152,15 +108,15 @@ const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseM
       }
     }
   }, [isLightbox, isModalOpened]);
-// lightbox --> add a class --> pointer events none 
-  return( //lightbox ? small class : full     thum 50% --> grid justify-items:center
+
+  return(
     <section className='gallery'>
      
         <button className={`gallery__btn gallery__btn_prev ${isModalOpened&&isLightbox ? 'gallery__btn_visible' : ''}`} type='button' aria-label='show the previous image' onClick={handleLeft}></button>
         <button className={`gallery__btn gallery__btn_next ${isModalOpened&&isLightbox ? 'gallery__btn_visible' : ''}`} type='button' aria-label='show the next image' onClick={handleRight}></button>
         <button className={`gallery__close-btn ${isModalOpened&&isLightbox ? 'gallery__close-btn_visible' : ''}`} type='button' aria-label='close the gallery' onClick={onCloseModal}></button>
       
-        <div className={`gallery__container ${isLightbox ? 'gallery__container_type_lightbox':''}`}>
+        <div className={`gallery__container ${isLightbox ? 'gallery__container_type_lightbox':'gallery__container_mobile'}`}>
           <picture className={`gallery__main ${sliderAnimation ? 'gallery__main_withAnimation': !isLightbox ? 'gallery__main_hover': /*''*/sliderLightboxAnimation ? 'gallery__main_withLightboxAnimation':''} ${isLightbox ? 'gallery__main_noevent':''} ${sliderMobileAnimation ? 'gallery__main_withLightboxAnimation':''}`} onClick={handleOpenModal}>
             <img  className='gallery__img gallery__img_main' src={images[imgIndex]['alias'] || images[0]['alias']} alt="item"/>
           </picture>
@@ -179,15 +135,3 @@ const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseM
 }
 
 export default Gallery;
-/*<li className={`gallery__thumbnail ${(activeImg === 'image-product-1')||(imgIndex===0) ?'gallery__thumbnail_active':'gallery__thumbnail_hover'}`} onClick={handleImgClick}>
-            <img  className='gallery__img gallery__img_thumbnail' src={product1} alt="item"/>
-          </li>
-          <li className={`gallery__thumbnail ${(activeImg === 'image-product-2')||(imgIndex===1)?'gallery__thumbnail_active':'gallery__thumbnail_hover'}`} onClick={handleImgClick}>
-            <img  className='gallery__img gallery__img_thumbnail' src={product2t} alt="item"/>
-          </li>
-          <li className={`gallery__thumbnail ${(activeImg === 'image-product-3')||(imgIndex===2)?'gallery__thumbnail_active':'gallery__thumbnail_hover'}`} onClick={handleImgClick}>
-            <img  className='gallery__img gallery__img_thumbnail' src={product3t} alt="item"/>
-          </li>
-          <li className={`gallery__thumbnail ${(activeImg === 'image-product-4')||(imgIndex===3)?'gallery__thumbnail_active':'gallery__thumbnail_hover'}`} onClick={handleImgClick}>
-            <img  className='gallery__img gallery__img_thumbnail' src={product4t} alt="item"/>
-          </li>*/

@@ -4,7 +4,6 @@ import Main from './Main';
 import ModalWindow from './ModalWindow';
 import productData from '../utils/data';
 import Footer from './Footer';
-//navbar component
 
 function App() {
   const [isModalOpened, setIsModalOpened] = useState(false);
@@ -40,12 +39,20 @@ function App() {
       return event.key === 'Escape' ? handleCloseModal() : '';
     }
 
+    const closeLightboxWithResizing = (event) => {
+      if (event.target.innerWidth <= 820){
+        return handleCloseModal();
+      }
+    }
+
     document.addEventListener('click', handleClickCloseModal);
     document.addEventListener('keydown', handleEscCloseModal);
+    window.addEventListener('resize', closeLightboxWithResizing);
 
     return () => {
       document.removeEventListener('click', handleClickCloseModal);
       document.removeEventListener('keydown', handleEscCloseModal);
+      window.removeEventListener('resize', closeLightboxWithResizing);
     }
   }, []);
 

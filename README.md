@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# Frontend Mentor - E-commerce product page solution
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a solution to the [E-commerce product page challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/ecommerce-product-page-UPsZ9MJp6). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-## Available Scripts
+* Front-end code for the Ecommerce product app that let users to preview a product through the gallery/lightbox and enables user to use cart functionalities such as adding and removing items
 
-In the project directory, you can run:
+## Table of contents
 
-### `npm start`
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+- [Author](#author)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Overview
 
-### `npm test`
+### The challenge
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Users should be able to:
 
-### `npm run build`
+- View the optimal layout for the site depending on their device's screen size
+- See hover states for all interactive elements on the page
+- Open a lightbox gallery by clicking on the large product image
+- Switch the large product image by clicking on the small thumbnail images
+- Add items to the cart
+- View the cart and remove items from it
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Screenshot
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![Main](./src/images/screenshot-main.png)
+<div>
+  <img src='./src/images/screenshot-mobile.png/' alt='mobile' width='215px'/>
+  <img src='./src/images/screenshot-lightbox.png' alt='lightbox' width='400px'/>
+</div>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### Links
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Solution URL: [Git repository](https://github.com/GozdeHisarckllar/challenge-ecommerce-product-page)
+- Live Site URL: [Git Pages](https://gozdehisarckllar.github.io/challenge-ecommerce-product-page/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## My process
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* I created and tried to use reusable custom components as much as possible, especially for the lightbox/gallery and navbar components.
+* By creating a list of sample data objects, for some custom components, I tried to create a simulation of the case as if the data was fetched from an API and adjust the code in order to make it became more compatible to display more data of other possibly additional products. (ex. shopping cart updates, gallery/lightbox, when assumed React Routers and other product pages are created and made some necessary adjustments such as using map() for rendering as well).
 
-## Learn More
+### Built with
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Semantic HTML5 and JSX markup
+- CSS
+- Flexbox
+- CSS Grid
+- Desktop-first workflow
+- ES6 features
+- [React](https://reactjs.org/) - JS library
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### What I learned
 
-### Code Splitting
+Throughout the project, I faced some new challenges and learning oppotunities while coming up with possible solutions to some cases such as gallery/slider functionalities & animations, updating context of an inner object of a state variable. I really enjoyed the process of both learning and contemplating, finding out solutions and then testing my solutions with considering different possible cases. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Continued development
 
-### Analyzing the Bundle Size
+I am plannig to continue focusing on coding different types of gallery or slider designs. Also, I would like to create a project with additional product pages on the frontend and product data fetched from the backend.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Author
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Website - [Gözde Hisarcıklılar](https://github.com/GozdeHisarckllar)
+- Frontend Mentor - [@GozdeHisarckllar](https://www.frontendmentor.io/profile/GozdeHisarckllar)
+- Twitter - [@gzdehsr](https://www.twitter.com/gzdehsr)

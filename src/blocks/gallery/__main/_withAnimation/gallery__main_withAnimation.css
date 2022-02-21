@@ -1,0 +1,19 @@
+@keyframes sliderAnimation {
+  0% {
+    transform: scale(1);
+    filter: none;
+  }
+
+  50% {
+    transform: scale(.97);
+    filter: saturate(12%);
+  }
+  100% {
+    transform: scale(1);
+    filter: none;
+  }
+}
+
+.gallery__main_withAnimation {
+  animation: sliderAnimation .3s 1 linear forwards;
+}

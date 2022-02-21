@@ -2,11 +2,8 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import logo from '../images/logo.svg';
-//Navbar component with modifier
-//     transform: translate3d(-22%, 0, 0);
+
 const Header = ({ cartData, onRemoveCart }) => {// constant itemCount
-  //const [isCartEmpty, setIsCardEmpty] = useState(false);// true/******** */
-  // img src constant
 
   const [isVisible, setIsVisible] = useState(false);
   const [notificationCount, setNotificationCount] = useState(0);

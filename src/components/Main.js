@@ -1,43 +1,14 @@
 import { useState } from 'react';
-/*import product1 from '../images/image-product-1.jpg';
-import product2t from '../images/image-product-2.jpg';
-import product3t from '../images/image-product-3.jpg';
-import product4t from '../images/image-product-4.jpg';*/
-
 import iconPlus from '../images/icon-plus.svg';
 import iconMinus from '../images/icon-minus.svg';
-
 import iconCart from '../images/icon-cart.svg';
-
 import Gallery from './Gallery';
-//dict map key imgid
 // data Context
 const Main = ({ productData, isModalOpened, onOpenModal, onCloseModal, onAddCart }) => {
 
-  /*const [galleryMainImg, setGalleryMainImg] = useState('');
-  const [activeImg, setActiveImg] = useState('image-product-1');*/
   const [purchaseQuantity, setPurchaseQuantity] = useState(1);
-  /*const regex = /image-product-\d/;
-  let sourceString;*/
-
-  /*function handleImgClick(event) {
-    if (event.target.classList.contains('gallery__img')) {
-      setGalleryMainImg(event.target.src);
-      sourceString = event.target.src.toString();
-    } else {
-      setGalleryMainImg(event.target.querySelector('.gallery__img').src);
-      sourceString = event.target.querySelector('.gallery__img').src.toString();
-    }
-    
-    setActiveImg(sourceString.match(regex)[0]);
-    //console.log(sourceString.match(regex)[0]);
-  }// background -image key i   or   move all the gallery and function*/
 
   function handleChangeQuantity(event) {
-    /*let value = event.target.value.toString()
-    if (value.match(/1/)) {
-      value = Number(value.replace(/1/, 1));
-    }*/
     setPurchaseQuantity(Number(event.target.value));
   }
 
@@ -96,4 +67,4 @@ const Main = ({ productData, isModalOpened, onOpenModal, onCloseModal, onAddCart
   );
 }
 
-export default Main;// [{id:1, name, price, count: }, {}]  product data = [id, images, name, price]
+export default Main;

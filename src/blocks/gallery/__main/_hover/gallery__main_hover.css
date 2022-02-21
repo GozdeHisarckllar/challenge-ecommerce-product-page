@@ -1,0 +1,5 @@
+.gallery__main_hover:hover {
+  /*transform: rotate3d(0, 1, -1, 2deg);*/
+  /*filter: drop-shadow(-8px 16px 12px rgb(68, 29, 3));*/
+  filter: drop-shadow(0 0 6px rgb(68, 29, 3, .5));
+}

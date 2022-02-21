@@ -9,12 +9,16 @@
 @import url('./__btn/_next/gallery__btn_next.css');
 @import url('./__btn/_prev/gallery__btn_prev.css');
 @import url('./__main/_noevent/gallery__main_noevent.css');
+@import url('./__main/_hover/gallery__main_hover.css');
 @import url('./__close-btn/gallery__close-btn.css');
 @import url('./__thumbnail-container/gallery__thumbnail-container.css');
 @import url('./__thumbnail-container/_type/gallery__thumbnail-container_type_lightbox.css');
 @import url('./__close-btn/_visible/gallery__close-btn_visible.css');
 @import url('./__btn/_visible/gallery__btn_visible.css');
 @import url('./__container/_type/gallery__container_type_lightbox.css');
+@import url('./__container/_mobile/gallery__container_mobile.css');
+@import url('./__main/_withAnimation/gallery__main_withAnimation.css');
+@import url('./__main/_withLightboxAnimation/gallery__main_withLightboxAnimation.css');
 
 .gallery {
   position: relative;
