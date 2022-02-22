@@ -71,5 +71,4 @@ I am plannig to continue focusing on coding different types of gallery or slider
 ## Author
 
 - Website - [Gözde Hisarcıklılar](https://github.com/GozdeHisarckllar)
-- Frontend Mentor - [@GozdeHisarckllar](https://www.frontendmentor.io/profile/GozdeHisarckllar)
 - Twitter - [@gzdehsr](https://www.twitter.com/gzdehsr)
