@@ -56,7 +56,7 @@ Users should be able to:
 - CSS
 - Flexbox
 - CSS Grid
-- Desktop-first workflow
+- BEM methodology
 - ES6 features
 - [React](https://reactjs.org/) - JS library
 
