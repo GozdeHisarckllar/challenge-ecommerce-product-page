@@ -49,7 +49,7 @@ Users should be able to:
 
 * I created and tried to use reusable custom components as much as possible, especially for the lightbox/gallery and navbar components.
 
-* By creating a list of sample data objects, I tried to create a simulation of the case as if the data was fetched from an API. I adjusted some custom components, in order to make it became more compatible to display possible additional data. (For instance, I refined some code for shopping cart updates and gallery/lightbox. After all, React Routers and other product pages are required to be created and some necessary adjustments such as using the map() function for rendering product pages and showing data should be made as well).
+* By creating a list of sample data objects, I tried to create a simulation of the case as if the data was fetched from an API. I adjusted some custom components, in order to make it became more compatible to display possible additional data. (For instance, I refined some code for shopping cart updates and gallery/lightbox. Still, React Routers and other product pages are required to be created and some necessary adjustments such as using the map() function for rendering product pages and showing data should be made as well).
 
 ### Built with
 
