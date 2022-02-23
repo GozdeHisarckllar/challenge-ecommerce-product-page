@@ -48,7 +48,8 @@ Users should be able to:
 ## My process
 
 * I created and tried to use reusable custom components as much as possible, especially for the lightbox/gallery and navbar components.
-* By creating a list of sample data objects, for some custom components, I tried to create a simulation of the case as if the data was fetched from an API and adjust the code in order to make it became more compatible to display more data of other possibly additional products. (ex. shopping cart updates, gallery/lightbox, when assumed React Routers and other product pages are created and made some necessary adjustments such as using map() for rendering as well).
+
+* By creating a list of sample data objects, I tried to create a simulation of the case as if the data was fetched from an API. I adjusted some custom components, in order to make it became more compatible to display possible additional data. (For instance, I refined some code for shopping cart updates and gallery/lightbox. After all, React Routers and other product pages are required to be created and some necessary adjustments such as using the map() function for rendering product pages and showing data should be made as well).
 
 ### Built with
 
@@ -70,5 +71,5 @@ I am plannig to continue focusing on coding different types of gallery or slider
 
 ## Author
 
-- Website - [Gözde Hisarcıklılar](https://github.com/GozdeHisarckllar)
+- Github - [Gözde Hisarcıklılar](https://github.com/GozdeHisarckllar)
 - Twitter - [@gzdehsr](https://www.twitter.com/gzdehsr)
