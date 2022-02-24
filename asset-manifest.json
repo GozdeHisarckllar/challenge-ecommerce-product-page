@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/challenge-ecommerce-product-page/static/css/main.3faebc58.chunk.css",
-    "main.js": "/challenge-ecommerce-product-page/static/js/main.8ba80f24.chunk.js",
-    "main.js.map": "/challenge-ecommerce-product-page/static/js/main.8ba80f24.chunk.js.map",
+    "main.js": "/challenge-ecommerce-product-page/static/js/main.8bb15b1e.chunk.js",
+    "main.js.map": "/challenge-ecommerce-product-page/static/js/main.8bb15b1e.chunk.js.map",
     "runtime-main.js": "/challenge-ecommerce-product-page/static/js/runtime-main.30e026fe.js",
     "runtime-main.js.map": "/challenge-ecommerce-product-page/static/js/runtime-main.30e026fe.js.map",
     "static/js/2.173ee2b3.chunk.js": "/challenge-ecommerce-product-page/static/js/2.173ee2b3.chunk.js",
@@ -25,6 +25,6 @@
     "static/js/runtime-main.30e026fe.js",
     "static/js/2.173ee2b3.chunk.js",
     "static/css/main.3faebc58.chunk.css",
-    "static/js/main.8ba80f24.chunk.js"
+    "static/js/main.8bb15b1e.chunk.js"
   ]
 }
