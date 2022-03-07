@@ -9,14 +9,6 @@ const Header = ({ cartData, onRemoveCart }) => {
   const [notificationCount, setNotificationCount] = useState(0);
   const [isNavbarPanelOpened, setIsNavbarPanelOpened] = useState(false);
 
-  /*function handleMouseOver(){
-    setIsVisible(true);
-  }
-
-  function handleMouseOut() {
-    setIsVisible(false);
-  }*/
-
   function handleRemoveItem(itemId) {
     onRemoveCart(itemId);
   }
@@ -90,17 +82,14 @@ const Header = ({ cartData, onRemoveCart }) => {
       </div>
       <div className="header__account">
         <div className="header__shopping-info">
-          <button className="header__shopping-cart" type="button" /*onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}*/ onClick={handleToggleCartPopup}>
+          <button className="header__shopping-cart" type="button" aria-label='open or close shopping-cart preview' onClick={handleToggleCartPopup}>
             <span className={`header__shopping-cart-notification ${cartData.length ? 'header__shopping-cart-notification_active':''}`}>
               <span className="header__shopping-cart-count">{notificationCount}</span>
             </span>
           </button>
-          <Link to="/" className="header__account-profile" />
+          <Link to="#" className="header__account-profile" />
         </div>
-        <div className={`header__cart-preview-popup ${isVisible ? 'header__cart-preview-popup_opened':''}`}
-          /*onMouseOver={handleMouseOver} 
-          onMouseOut={handleMouseOut}*/
-        >
+        <div className={`header__cart-preview-popup ${isVisible ? 'header__cart-preview-popup_opened':''}`}>
           <p className="header__cart-preview-title">Cart</p>
           { cartData.length === 0 ? 
           <p className="header__cart-preview-empty">Your cart is empty.</p>
