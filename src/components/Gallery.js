@@ -38,7 +38,7 @@ const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseM
   }
 
   function handleLeft() {
-    imgIndex > 0 ? setImgIndex(imgIndex-1):setImgIndex(images.length-1);/*3*/
+    imgIndex > 0 ? setImgIndex(imgIndex-1):setImgIndex(images.length-1);
     setActiveImg(false);
   }
 
@@ -85,27 +85,27 @@ const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseM
       }
     } else if (isModalOpened && isLightbox) {
 
-      const triggerLightBoxAnime = (event) => {
-        if (event.target.classList.contains('gallery__thumbnail') || 
-        event.target.classList.contains('gallery__btn')) {
-          setSliderLightboxAnimation(true);
-        }
-      }
-
-      const stopLightboxAnime = (event) => {
-        if (event.target.classList.contains('gallery__thumbnail') || 
+        const triggerLightBoxAnime = (event) => {
+          if (event.target.classList.contains('gallery__thumbnail') || 
           event.target.classList.contains('gallery__btn')) {
-          setSliderLightboxAnimation(false);
+            setSliderLightboxAnimation(true);
+          }
         }
-      }
-        
-      document.addEventListener('mouseup', triggerLightBoxAnime);
-      document.addEventListener('mousedown', stopLightboxAnime);
 
-      return () => {
-        document.removeEventListener('mouseup', triggerLightBoxAnime);
-        document.removeEventListener('mousedown', stopLightboxAnime);
-      }
+        const stopLightboxAnime = (event) => {
+          if (event.target.classList.contains('gallery__thumbnail') || 
+            event.target.classList.contains('gallery__btn')) {
+            setSliderLightboxAnimation(false);
+          }
+        }
+        
+        document.addEventListener('mouseup', triggerLightBoxAnime);
+        document.addEventListener('mousedown', stopLightboxAnime);
+
+        return () => {
+          document.removeEventListener('mouseup', triggerLightBoxAnime);
+          document.removeEventListener('mousedown', stopLightboxAnime);
+        }
     }
   }, [isLightbox, isModalOpened]);
 
@@ -117,14 +117,17 @@ const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseM
         <button className={`gallery__close-btn ${isModalOpened&&isLightbox ? 'gallery__close-btn_visible' : ''}`} type='button' aria-label='close the gallery' onClick={onCloseModal}></button>
       
         <div className={`gallery__container ${isLightbox ? 'gallery__container_type_lightbox':'gallery__container_mobile'}`}>
-          <picture className={`gallery__main ${sliderAnimation ? 'gallery__main_withAnimation': !isLightbox ? 'gallery__main_hover': /*''*/sliderLightboxAnimation ? 'gallery__main_withLightboxAnimation':''} ${isLightbox ? 'gallery__main_noevent':''} ${sliderMobileAnimation ? 'gallery__main_withLightboxAnimation':''}`} onClick={handleOpenModal}>
-            <img  className='gallery__img gallery__img_main' src={images[imgIndex]['alias'] || images[0]['alias']} alt="item"/>
+          <picture 
+            className={`gallery__main ${sliderAnimation ? 'gallery__main_withAnimation': !isLightbox ? 'gallery__main_hover': sliderLightboxAnimation ? 'gallery__main_withLightboxAnimation':''} ${isLightbox ? 'gallery__main_noevent':''} ${sliderMobileAnimation ? 'gallery__main_withLightboxAnimation':''}`} 
+            onClick={handleOpenModal}
+          >
+            <img  className='gallery__img gallery__img_main' src={images[imgIndex]['alias'] || images[0]['alias']} alt="product appearence"/>
           </picture>
           <ul className={`gallery__thumbnail-container ${isLightbox ? 'gallery__thumbnail-container_type_lightbox':''}`}>
           {
             images.map((img) => (
               <li key= {img.index} className={`gallery__thumbnail ${(activeImg === img.regexMatch)||(imgIndex === img.index) ?'gallery__thumbnail_active':'gallery__thumbnail_hover'}`} onClick={handleImgClick}>
-                <img  className='gallery__img gallery__img_thumbnail' src={img.alias} alt="appearence of the items from different angles"/>
+                <img  className='gallery__img gallery__img_thumbnail' src={img.alias} alt="product appearence thumbnail"/>
               </li>
             ))
           }

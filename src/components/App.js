@@ -58,7 +58,10 @@ function App() {
 
   return (
     <div className="page__container">
-      <Header cartData={cartData} onRemoveCart={handleRemoveCart}/>
+      <Header 
+        cartData={cartData} 
+        onRemoveCart={handleRemoveCart}
+      />
       <Main
         productData={productData} 
         isModalOpened={isModalOpened} 

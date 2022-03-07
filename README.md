@@ -51,10 +51,12 @@ Users should be able to:
 
 * By creating a list of sample data objects, I tried to create a simulation of the case as if the data was fetched from an API. I adjusted some custom components, in order to make it became more compatible to display possible additional data. (For instance, I refined some code for shopping cart updates and gallery/lightbox. Still, React Routers and other product pages are required to be created and some necessary adjustments such as using the map() function for rendering product pages and showing data should be made as well).
 
+* After adding media-queries in the final steps, I made the page components responsive to desktop, tablet and mobile viewports.
+
 ### Built with
 
 - Semantic HTML5 and JSX markup
-- CSS
+- CSS3
 - Flexbox
 - CSS Grid
 - BEM methodology
@@ -63,7 +65,7 @@ Users should be able to:
 
 ### What I learned
 
-Throughout the project, I faced some new challenges and learning oppotunities while coming up with possible solutions to some cases such as gallery/slider functionalities & animations, updating context of an inner object of a state variable. I really enjoyed the process of both learning and contemplating, finding out solutions and then testing my solutions with considering different possible cases. 
+Throughout the project, I faced some new challenges and learning oppotunities while coming up with possible solutions to some cases such as gallery/slider functionalities & animations, updating context of an inner object of a state variable. I really enjoyed the process of both learning and contemplating, finding out solutions and then testing my solutions by considering different possible cases that an app user can encounter.
 
 ### Continued development
 

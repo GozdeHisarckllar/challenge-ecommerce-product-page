@@ -11,5 +11,6 @@
 
 .product__count:focus {
   background-color: hsl(223, 64%, 98%);
-  outline: none;
+  caret-color: hsl(26, 100%, 55%);
+  outline: none
 }

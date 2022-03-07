@@ -5,7 +5,7 @@ const Navbar = ({ navbarModifier, linkModifier }) => {
     <nav className={`header__navbar ${navbarModifier}`}>
       {
       ['Collections', 'Women', 'Men', 'About', 'Contact'].map((navItem, i) => (
-        <Link key={i} className={`header__navbar-link ${linkModifier}`} to="/">{navItem}</Link>
+        <Link key={i} className={`header__navbar-link ${linkModifier}`} to="#">{navItem}</Link>
       ))
     }
     </nav>

@@ -3,7 +3,7 @@ import iconPlus from '../images/icon-plus.svg';
 import iconMinus from '../images/icon-minus.svg';
 import iconCart from '../images/icon-cart.svg';
 import Gallery from './Gallery';
-// data Context
+
 const Main = ({ productData, isModalOpened, onOpenModal, onCloseModal, onAddCart }) => {
 
   const [purchaseQuantity, setPurchaseQuantity] = useState(1);
@@ -50,7 +50,7 @@ const Main = ({ productData, isModalOpened, onOpenModal, onCloseModal, onAddCart
             <p className='product__retail'>{`$${productData[0].listPrice.toFixed(2)}`}</p>
           </div>
         </div>
-        <form className='product__cart-info' onSubmit={handleSubmitAddCart}>
+        <form className='product__cart-info' name='productForm' onSubmit={handleSubmitAddCart}>
           <label className='product__counter-container' >
             <img className='product__counter-icon product__counter-icon_type_minus' src={iconMinus} alt='discriment the quantity' onClick={() => {purchaseQuantity <= 1 ? setPurchaseQuantity(Number(purchaseQuantity)) : setPurchaseQuantity(Number(purchaseQuantity) - 1)}}/>
             <input className='product__count' value={purchaseQuantity} name='quantity' onChange={handleChangeQuantity} maxLength='2' onMouseOut={() => purchaseQuantity ? '' : setPurchaseQuantity(1)}/>
@@ -58,7 +58,7 @@ const Main = ({ productData, isModalOpened, onOpenModal, onCloseModal, onAddCart
           </label>
           <button className='product__add-btn' type='submit' aria-label='add this item to your cart'>
             <img className='product__add-cart-icon' src={iconCart} alt='cart icon'/>
-            <p className='product__add-btn-label'>Add to cart</p>
+            <span className='product__add-btn-label'>Add to cart</span>
           </button>
         </form>
       </section>

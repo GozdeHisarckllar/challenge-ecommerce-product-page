@@ -16,9 +16,4 @@
 
 .gallery__close-btn:hover {
   background-image: url('../../../images/icon-close-hover.svg');
-  transform: scale(1.2);
-}
-
-.gallery__close-btn:active {
-  transform: scale(1);
 }

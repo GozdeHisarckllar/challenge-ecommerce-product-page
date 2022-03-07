@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Navbar from './Navbar';
 import logo from '../images/logo.svg';
 
-const Header = ({ cartData, onRemoveCart }) => {// constant itemCount
+const Header = ({ cartData, onRemoveCart }) => {
 
   const [isVisible, setIsVisible] = useState(false);
   const [notificationCount, setNotificationCount] = useState(0);
@@ -78,7 +78,7 @@ const Header = ({ cartData, onRemoveCart }) => {// constant itemCount
     <header className="header">
       <div className="header__main">
         <div className='header__navbar-open-btn' onClick={handleOpenNavbarPanel}></div>
-        <Link className="header__logo-link" to="/">
+        <Link className="header__logo-link" to="#">
           <img className="header__logo" src={logo} alt="sneakers brand logo"/>
         </Link>
           <Navbar navbarModifier='' linkModifier=''/>
@@ -91,9 +91,9 @@ const Header = ({ cartData, onRemoveCart }) => {// constant itemCount
       <div className="header__account">
         <div className="header__shopping-info">
           <button className="header__shopping-cart" type="button" /*onMouseOver={handleMouseOver} onMouseOut={handleMouseOut}*/ onClick={handleToggleCartPopup}>
-            <div className={`header__shopping-cart-notification ${cartData.length ? 'header__shopping-cart-notification_active':''}`}>
-              <p className="header__shopping-cart-count">{notificationCount}</p>
-            </div>
+            <span className={`header__shopping-cart-notification ${cartData.length ? 'header__shopping-cart-notification_active':''}`}>
+              <span className="header__shopping-cart-count">{notificationCount}</span>
+            </span>
           </button>
           <Link to="/" className="header__account-profile" />
         </div>
@@ -111,13 +111,13 @@ const Header = ({ cartData, onRemoveCart }) => {// constant itemCount
               <img className="header__cart-preview-img" src={cartItem.image} alt="sneakers"/>
               <p className="header__cart-preview-name">Fall Limited Edition Sneakers</p>
               <p className="header__cart-preview-price">$ {cartItem.price.toFixed(2)} X {cartItem.count} <span className="header__cart-preview-calc">$ {cartItem.price.toFixed(2) * cartItem.count}.00</span></p>
-              <button className="header__cart-preview-delete" type="button" onClick={() => handleRemoveItem(cartItem.id)}></button>
+              <button className="header__cart-preview-delete" type="button" aria-label='remove this item from your cart' onClick={() => handleRemoveItem(cartItem.id)}></button>
             </li>
              )
             ) }
           </ul>  
           }
-          {cartData.length !== 0 && <button className="header__cart-preview-checkout" type="button">Checkout</button>}
+          {cartData.length !== 0 && <button className="header__cart-preview-checkout" type="button" aria-label='checkout'>Checkout</button>}
         </div>
       </div>
     </header>
