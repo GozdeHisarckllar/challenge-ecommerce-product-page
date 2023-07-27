@@ -8,7 +8,7 @@ const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseM
   const [sliderMobileAnimation, setSliderMobileAnimation] = useState(false);
   const regex = /image-product-\d/;
   let sourceString;
-  const images = productData[0].images;//if there is mode data, mapping for Gallery and product data can be used
+  const images = productData[0].images;//if there are more data, map() function can be used for Gallery and Product components
 
    
   function handleImgClick(event) {
