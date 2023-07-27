@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/challenge-ecommerce-product-page/static/css/main.c14e4452.chunk.css",
-    "main.js": "/challenge-ecommerce-product-page/static/js/main.7cde42d0.chunk.js",
-    "main.js.map": "/challenge-ecommerce-product-page/static/js/main.7cde42d0.chunk.js.map",
+    "main.css": "/challenge-ecommerce-product-page/static/css/main.88895dbf.chunk.css",
+    "main.js": "/challenge-ecommerce-product-page/static/js/main.6080665a.chunk.js",
+    "main.js.map": "/challenge-ecommerce-product-page/static/js/main.6080665a.chunk.js.map",
     "runtime-main.js": "/challenge-ecommerce-product-page/static/js/runtime-main.30e026fe.js",
     "runtime-main.js.map": "/challenge-ecommerce-product-page/static/js/runtime-main.30e026fe.js.map",
     "static/js/2.173ee2b3.chunk.js": "/challenge-ecommerce-product-page/static/js/2.173ee2b3.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.ed0a4226.chunk.js": "/challenge-ecommerce-product-page/static/js/3.ed0a4226.chunk.js",
     "static/js/3.ed0a4226.chunk.js.map": "/challenge-ecommerce-product-page/static/js/3.ed0a4226.chunk.js.map",
     "index.html": "/challenge-ecommerce-product-page/index.html",
-    "static/css/main.c14e4452.chunk.css.map": "/challenge-ecommerce-product-page/static/css/main.c14e4452.chunk.css.map",
+    "static/css/main.88895dbf.chunk.css.map": "/challenge-ecommerce-product-page/static/css/main.88895dbf.chunk.css.map",
     "static/js/2.173ee2b3.chunk.js.LICENSE.txt": "/challenge-ecommerce-product-page/static/js/2.173ee2b3.chunk.js.LICENSE.txt",
     "static/media/index.css": "/challenge-ecommerce-product-page/static/media/icon-previous.80616402.svg",
     "static/media/icon-minus.f5073aa8.svg": "/challenge-ecommerce-product-page/static/media/icon-minus.f5073aa8.svg",
@@ -24,7 +24,7 @@
   "entrypoints": [
     "static/js/runtime-main.30e026fe.js",
     "static/js/2.173ee2b3.chunk.js",
-    "static/css/main.c14e4452.chunk.css",
-    "static/js/main.7cde42d0.chunk.js"
+    "static/css/main.88895dbf.chunk.css",
+    "static/js/main.6080665a.chunk.js"
   ]
 }
