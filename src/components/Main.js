@@ -8,7 +8,7 @@ const Main = ({ productData, isModalOpened, onOpenModal, onCloseModal, onAddCart
 
   const [purchaseQuantity, setPurchaseQuantity] = useState(1);
 
-  function handleChangeQuantity(event) {
+  function handleChangeQuantity(event) {/*input value*/
     setPurchaseQuantity(Number(event.target.value));
   }
 

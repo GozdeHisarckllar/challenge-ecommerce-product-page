@@ -7,7 +7,7 @@
   border: none;
   border-radius: 12px;
   outline: #fff;
-  transition: all .3s ease-in-out;
+  transition: all .2s ease-in-out;
   cursor: pointer;
   filter: drop-shadow(0 10px 12px rgba(231, 117, 29, .46));
 }
