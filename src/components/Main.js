@@ -1,19 +1,18 @@
 import { useState } from 'react';
-import iconPlus from '../images/icon-plus.svg';
-import iconMinus from '../images/icon-minus.svg';
 import iconCart from '../images/icon-cart.svg';
 import Gallery from './Gallery';
 
-const Main = ({ productData, isModalOpened, onOpenModal, onCloseModal, onAddCart }) => {
+const Main = ({ productData, isModalOpened, onOpenModal, onCloseModal, onAddCart, onSetImgStartIndex, imgStartIndex }) => {
 
   const [purchaseQuantity, setPurchaseQuantity] = useState(1);
 
-  function handleChangeQuantity(event) {/*input value*/
+  function handleChangeQuantity(event) {
     setPurchaseQuantity(Number(event.target.value));
   }
 
   function handleSubmitAddCart(event) {
     event.preventDefault();
+    
     const cartListItem = {
       id: productData[0].id,
       title: productData[0].title,
@@ -33,6 +32,8 @@ const Main = ({ productData, isModalOpened, onOpenModal, onCloseModal, onAddCart
         isModalOpened={isModalOpened} 
         onOpenModal={onOpenModal} 
         onCloseModal={onCloseModal}
+        onSetImgStartIndex={onSetImgStartIndex}
+        imgStartIndex={imgStartIndex}
       />
       <section className='product'>
         <div className='product__container'>
@@ -44,17 +45,17 @@ const Main = ({ productData, isModalOpened, onOpenModal, onCloseModal, onAddCart
           </p>
           <div className='product__cost-info'>
             <div className='product__cost-container'>
-              <p className='product__price'>{`$${purchaseQuantity ? (productData[0].salePrice * purchaseQuantity).toFixed(2): productData[0].salePrice.toFixed(2)}`}</p>
+              <p className='product__price'>{`$${(productData[0].salePrice * purchaseQuantity).toFixed(2)}`}</p>
               <p className='product__discount'>{`${Math.abs(Math.round((productData[0].salePrice - productData[0].listPrice) / productData[0].listPrice * 100))}%`}</p>
             </div>
-            <p className='product__retail'>{`$${productData[0].listPrice.toFixed(2)}`}</p>
+            <p className='product__retail'>{`$${(productData[0].listPrice * purchaseQuantity).toFixed(2)}`}</p>
           </div>
         </div>
         <form className='product__cart-info' name='productForm' onSubmit={handleSubmitAddCart}>
           <label className='product__counter-container' >
-            <img className='product__counter-icon product__counter-icon_type_minus' src={iconMinus} alt='discriment the quantity' onClick={() => {purchaseQuantity <= 1 ? setPurchaseQuantity(Number(purchaseQuantity)) : setPurchaseQuantity(Number(purchaseQuantity) - 1)}}/>
-            <input className='product__count' value={purchaseQuantity} name='quantity' onChange={handleChangeQuantity} maxLength='2' onMouseOut={() => purchaseQuantity ? '' : setPurchaseQuantity(1)}/>
-            <img className='product__counter-icon product__counter-icon_type_plus' src={iconPlus} alt='increment the quantity' onClick={() => {if (purchaseQuantity < 99) {setPurchaseQuantity(Number(purchaseQuantity) + 1)}}} />
+            <button className='product__counter-icon product__counter-icon_type_minus' type="button" aria-label='discriment the quantity' onClick={() => {purchaseQuantity <= 1 ? setPurchaseQuantity(Number(purchaseQuantity)) : setPurchaseQuantity(Number(purchaseQuantity) - 1)}}/>
+            <input className='product__count' value={purchaseQuantity} name='quantity' type="number" readOnly onChange={handleChangeQuantity}  onMouseOut={() => purchaseQuantity ? '' : setPurchaseQuantity(1)}/>
+            <button className='product__counter-icon product__counter-icon_type_plus' type="button" aria-label='increment the quantity' onClick={() => {if (purchaseQuantity < 50) {setPurchaseQuantity(Number(purchaseQuantity) + 1)}}} />
           </label>
           <button className='product__add-btn' type='submit' aria-label='add this item to your cart'>
             <img className='product__add-cart-icon' src={iconCart} alt='cart icon'/>

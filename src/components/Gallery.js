@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 
-const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseModal }) => {
+const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseModal, onSetImgStartIndex, imgStartIndex  }) => {
 
-  const [activeImg, setActiveImg] = useState('image-product-1');
   const [sliderAnimation, setSliderAnimation] = useState(false);
   const [sliderLightboxAnimation, setSliderLightboxAnimation] = useState(false);
   const [sliderMobileAnimation, setSliderMobileAnimation] = useState(false);
   const regex = /image-product-\d/;
+  const [imgIndex, setImgIndex] = useState(0);
   let sourceString;
   const images = productData[0].images;//if there are more data, map() function can be used for Gallery and Product components
 
@@ -17,32 +17,41 @@ const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseM
     } else {
       sourceString = event.target.querySelector('.gallery__img').src.toString();
     }
-    
-    const matchedImg = images.find((img) => {
+
+    let matchedImg = images.find((img) => {
       return img.regexMatch === sourceString.match(regex)[0];
     });
- 
+
     setImgIndex(matchedImg.index);
   
-    setActiveImg(matchedImg.regexMatch);
-    
+    if (isLightbox) {
+      onSetImgStartIndex(matchedImg.index);
+    }
     setSliderAnimation(false);
   }
 
-  const [imgIndex, setImgIndex] = useState(0);
 
   
   function handleRight() {
-    imgIndex === images.length-1 ? setImgIndex(0): setImgIndex(imgIndex+1);
-    setActiveImg(false);
+    if (isLightbox) {
+      imgStartIndex === images.length-1 ? onSetImgStartIndex(0) : onSetImgStartIndex(imgStartIndex+1);
+    } else {
+      imgIndex === images.length-1 ? setImgIndex(0): setImgIndex(imgIndex+1);
+    }
+    
   }
 
   function handleLeft() {
-    imgIndex > 0 ? setImgIndex(imgIndex-1):setImgIndex(images.length-1);
-    setActiveImg(false);
+    if (isLightbox) {
+      imgStartIndex > 0 ? onSetImgStartIndex(imgStartIndex-1) : onSetImgStartIndex(images.length-1);
+    } else {
+      imgIndex > 0 ? setImgIndex(imgIndex-1):setImgIndex(images.length-1);
+    }
+    
   }
 
   function handleOpenModal() {
+    onSetImgStartIndex(imgIndex);
     onOpenModal();
   }
 
@@ -121,12 +130,12 @@ const Gallery = ({ productData, isLightbox, isModalOpened, onOpenModal, onCloseM
             className={`gallery__main ${sliderAnimation ? 'gallery__main_withAnimation': !isLightbox ? 'gallery__main_hover': sliderLightboxAnimation ? 'gallery__main_withLightboxAnimation':''} ${isLightbox ? 'gallery__main_noevent':''} ${sliderMobileAnimation ? 'gallery__main_withLightboxAnimation':''}`} 
             onClick={handleOpenModal}
           >
-            <img  className='gallery__img gallery__img_main' src={images[imgIndex]['alias'] || images[0]['alias']} alt="product appearence"/>
+            <img  className='gallery__img gallery__img_main' src={isLightbox ? images[imgStartIndex]['alias'] : images[imgIndex]['alias']} alt="product view"/>
           </picture>
           <ul className={`gallery__thumbnail-container ${isLightbox ? 'gallery__thumbnail-container_type_lightbox':''}`}>
           {
             images.map((img) => (
-              <li key= {img.index} className={`gallery__thumbnail ${(activeImg === img.regexMatch)||(imgIndex === img.index) ?'gallery__thumbnail_active':'gallery__thumbnail_hover'}`} onClick={handleImgClick}>
+              <li key= {img.index} className={`gallery__thumbnail ${(isModalOpened && isLightbox ? imgStartIndex === img.index : imgIndex === img.index) ?'gallery__thumbnail_active':'gallery__thumbnail_hover'}`} onClick={handleImgClick}>
                 <img  className='gallery__img gallery__img_thumbnail' src={img.alias} alt="product appearence thumbnail"/>
               </li>
             ))

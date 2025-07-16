@@ -1,6 +1,6 @@
 import Gallery from './Gallery';
 
-const ModalWindow = ({ productData, isModalOpened, onOpenModal, onCloseModal }) => {
+const ModalWindow = ({ productData, isModalOpened, onOpenModal, onCloseModal, onSetImgStartIndex, imgStartIndex }) => {
 
   return (
     <div className={`modal ${isModalOpened ? 'modal_opened': ''}`}>
@@ -11,6 +11,8 @@ const ModalWindow = ({ productData, isModalOpened, onOpenModal, onCloseModal }) 
           isModalOpened={isModalOpened} 
           onOpenModal={onOpenModal} 
           onCloseModal={onCloseModal}
+          onSetImgStartIndex={onSetImgStartIndex}
+          imgStartIndex={imgStartIndex}
         />
       </div>
 

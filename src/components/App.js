@@ -8,6 +8,7 @@ import Footer from './Footer';
 function App() {
   const [isModalOpened, setIsModalOpened] = useState(false);
   const [cartData, setCartData] = useState([]);
+  const [imgStartIndex, setImgStartIndex] = useState(0)
 
   function handleOpenModal() {
     setIsModalOpened(true);
@@ -15,6 +16,10 @@ function App() {
 
   function handleCloseModal() {
     setIsModalOpened(false);
+  }
+
+  function handleSetImgStartIndex(index) {
+    setImgStartIndex(index)
   }
 
   function handleAddCart(addedItem) {
@@ -68,6 +73,8 @@ function App() {
         onOpenModal={handleOpenModal} 
         onCloseModal={handleCloseModal}
         onAddCart={handleAddCart}
+        onSetImgStartIndex={handleSetImgStartIndex}
+        imgStartIndex={imgStartIndex}
       />
       <Footer />
       <ModalWindow
@@ -75,12 +82,15 @@ function App() {
         isModalOpened={isModalOpened} 
         onOpenModal={handleOpenModal} 
         onCloseModal={handleCloseModal}
+        onSetImgStartIndex={handleSetImgStartIndex}
+        imgStartIndex={imgStartIndex}
       />
     </div>
   );
 }
 
 export default App;
-/// Simulation - Rendering data from API
-// first way ->main + modal window or pass item data to modal -> Link to='/:item.id') -> (Single router) Router /product/:id  main ->useParams  prductData findbyid.images pass images to gallery
-// second way ->data.map((item) => list item -> Link to='/:item.id') + (Many routers) Router path='/item.id' data={item.data})
+
+// Some notes - Simulation - Rendering data from API:
+// i) ->main + modal window or pass item data to modal -> Link to='/:item.id') -> (Single router) Router /product/:id  main ->useParams  prductData findbyid.images pass images to gallery
+// ii) ->data.map((item) => list item -> Link to='/:item.id') + (Many routers) Router path='/item.id' data={item.data})

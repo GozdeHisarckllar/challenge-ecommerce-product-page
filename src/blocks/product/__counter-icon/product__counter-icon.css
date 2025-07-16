@@ -1,14 +1,6 @@
 .product__counter-icon {
+  padding: 20px 16px;
+  border: none;
   cursor: pointer;
   transition: all .1s ease-in-out;
-}
-
-.product__counter-icon:hover {
-  transform: scale(1.3);
-  background-color: rgba(231, 117, 29, .082);
-}
-
-.product__counter-icon:active {
-  transform: scale(1);
-  filter: brightness(0.8);
 }
